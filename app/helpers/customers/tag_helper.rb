@@ -1,0 +1,2 @@
+module Customers::TagHelper
+end

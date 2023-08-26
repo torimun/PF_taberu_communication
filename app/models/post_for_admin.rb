@@ -1,0 +1,3 @@
+class PostForAdmin < ApplicationRecord
+
+end

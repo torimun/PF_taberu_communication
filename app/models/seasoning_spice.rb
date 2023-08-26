@@ -1,0 +1,2 @@
+class SeasoningSpice < ApplicationRecord
+end
