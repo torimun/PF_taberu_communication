@@ -1,20 +1,20 @@
 Rails.application.routes.draw do
 # 顧客用
 # URL /customers/sign_in ...
-devise_for :customers,skip: [:passwords], controllers: {
-  registrations: "public/registrations",
-  sessions: 'public/sessions'
+devise_for :customers, controllers: {
+  registrations: "customers/registrations",
+  sessions: 'customers/sessions'
 }
 
 # 管理者用
 # URL /admin/sign_in ...
-devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-  sessions: "admin/sessions"
+devise_for :admins, controllers: {
+#  sessions: "admins/sessions"
 }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   #以下管理者用
-  namespace :admin do
+  namespace :admins do
     get 'homes/top'
     resources :posts, only: [:index, :new, :create]
     resources :customers, only: [:index, :show, :edit, :update]
@@ -23,7 +23,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
   #以下顧客用
   #homesコントローラー関連
-  namespace :customer do
+  namespace :customers do
     get 'homes/top'
     get 'homes/welcome', to: 'homes#welcome'
     get 'homes/new'
@@ -32,7 +32,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   end
 
   #membersコントローラー関連
-  namespace :customer do
+  namespace :customers do
     get 'members/profile', to: 'members#show'
     get 'members/information/edit', to: 'members#edit'
     patch 'members/information', to: 'members#update'
@@ -44,14 +44,14 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   end
 
   #いいね一覧、キーワード検索、タグ検索のコントローラー
-  namespace :customer do
+  namespace :customers do
     get 'goods/index'
     get 'keyword/index'
     get 'tag/index'
   end
 
   #postsコントローラー関連
-  namespace :customer do
+  namespace :customers do
     resources :posts, only: [:new, :create, :index, :show]
   end
 end
