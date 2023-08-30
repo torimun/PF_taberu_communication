@@ -33,8 +33,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
   #membersコントローラー関連
   namespace :customer do
-    get 'members/show'
-    get 'members/edit'
+    get 'members/profile', to: 'members#show'
+    get 'members/information/edit', to: 'members#edit'
     patch 'members/information', to: 'members#update'
 
     #退会確認画面
