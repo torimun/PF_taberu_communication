@@ -32,4 +32,3 @@
 - ## Gemfile
 - gem 'devise'
 - gem 'image_processing', '~>1.2' 追加 (画像サイズの変更の為)
--
