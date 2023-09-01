@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2023_08_26_071756) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "user_name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
@@ -37,16 +38,30 @@ ActiveRecord::Schema.define(version: 2023_08_26_071756) do
   end
 
   create_table "post_for_admins", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.string "classification", null: false
+    t.string "name", null: false
+    t.text "detail", null: false
+    t.text "usega", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "posts", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.text "tug"
+    t.text "comment", null: false
+    t.text "genre"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "seasoning_spices", force: :cascade do |t|
+    t.integer "admin_id", null: false
+    t.string "classification", null: false
+    t.string "name", null: false
+    t.text "detail", null: false
+    t.text "usega", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
