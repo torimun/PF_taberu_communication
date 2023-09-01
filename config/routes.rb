@@ -17,8 +17,15 @@ devise_for :admins, controllers: {
   namespace :admins do
     get 'homes/top'
     resources :posts, only: [:index, :new, :create]
-    resources :customers, only: [:index, :show, :edit, :update]
     resources :seasonings_spices, only: [:new, :create, :show, :edit, :update]
+  end
+
+  namespace :admins do
+    get 'customers/index'
+    get 'customers/show'
+    get '/admins/customers/:id/list_of_posts', to: 'customers#list'
+    get '/admin/customers/:id/edit', to: 'customers#edit'
+    patch '/admin/customers/:id', to: 'customers#update'
   end
 
   #以下顧客用

@@ -1,7 +1,7 @@
 <main>
   <div class="container">
     <div class="row my-3">
-      <h5>ログイン</h5>
+      <h5>ログイン画面</h5>
     </div>
 
     <div class="row my-2">
@@ -9,7 +9,7 @@
     </div>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    
+
     <div class="row justify-content-center">
       <div class="col-lg-3 my-2">
         <%= f.label :メールアドレス %>
@@ -52,5 +52,3 @@
     </div>
   </div>
 </main>
-
-<%= render "customers/shared/links" %>

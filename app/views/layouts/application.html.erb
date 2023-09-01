@@ -11,6 +11,63 @@
   </head>
 
   <body>
+    <header>
+      <nav class="navbar p-5 navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <h3 class="text-white">食べるコミュニケーション</h3>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse text-white" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto" >
+              <% if customer_signed_in? %>
+                <li>
+                  <%= link_to "ホーム画面リンク", customers_homes_top_path, method: :delete, class:"m-2 text-light" %>
+                </li>
+                <li>
+                  <%= link_to "投稿リンク", new_customers_post_path, class:"m-2 text-light" %>
+                </li>
+                <li>
+                <%= link_to "プロフィールリンク", customers_members_profile_path, class:"m-2 text-light" %>
+                </li>
+                <li>
+                  <%= link_to "管理者向け投稿リンク", customers_homes_new_path, class:"m-2 text-light" %>
+                </li>
+                <li>
+                <%= link_to "キーワード検索", customers_keyword_index_path, class:"m-2 text-light" %>
+                </li>
+                <li>
+                  <%= link_to "タグ検索", customers_tag_index_path, method: :delete, class:"m-2 text-light" %>
+                </li>
+                <li>
+                  <%= link_to "ログアウトリンク", destroy_customer_session_path, class:"m-2 text-light" %>
+                </li>
+              <% elsif admin_signed_in? %>
+                <li>
+                  <%= link_to "会員一覧", admins_customers_index_path, class:"m-2 text-light" %>
+                </li>
+                <li>
+                  <%= link_to "投稿承認一覧", admins_posts_path, class:"m-2 text-light" %>
+                </li>
+                <li>
+                <%= link_to "調味料・香辛料一覧", admins_homes_top_path, class:"m-2 text-light" %>
+                </li>
+                <li>
+                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"m-2 text-light" %>
+                </li>
+              <% else %>
+                <h4 class="justify-content-center">ようこそ食べるコミュニケーションへ！</h4>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <footer>
+      <div class="container border border-brack h-50"></div>
+    </footer>
     <%= yield %>
   </body>
+</html>
 </html>
