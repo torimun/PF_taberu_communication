@@ -61,4 +61,5 @@ devise_for :admins, controllers: {
   namespace :customers do
     resources :posts, only: [:new, :create, :index, :show]
   end
+
 end
