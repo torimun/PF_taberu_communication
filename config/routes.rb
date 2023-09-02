@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 # 顧客用
 # URL /customers/sign_in ...
-devise_for :customers, controllers: {
-  registrations: "customers/registrations",
-  sessions: 'customers/sessions'
+  devise_for :customers, controllers: {
+    registrations: "customers/registrations",
+    sessions: 'customers/sessions'
 }
 
 #ゲスト用ログイン
+# URL /customers/guest_sign_in
   devise_scope :customer do
     post 'customers/guest_sign_in', to: 'customers/sessions#guest_sign_in'
   end

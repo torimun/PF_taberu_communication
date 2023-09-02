@@ -1,1 +1,55 @@
-<%= link_to 'ゲストログイン（閲覧用）', customers_guest_sign_in_path, method: :post %>
+<div class="container">
+  <div class="row">
+
+  </div>
+
+  <div class="row my-3 justify-content-center">
+    <div class="col-lg-8 justify-content-center">
+      <strong>このサイトの目的</strong>
+    </div>
+  </div>
+
+  <div class="row my-3 justify-content-center">
+    <div class="col-lg-8 text-center ">
+      <strong>こちらのサイトは調味料や、香辛料を用いて独自の食べ方や味の</br>
+         アレンジ等を情報共有するとこで今までとは違った味の発見をする事で</br>
+         １人１人の食に彩を添えることを目的としたサイトになっています。
+      </strong>
+    </div>
+  </div>
+
+  <div class="row mt-5 justify-content-center">
+    <div class="col-lg-3 mx-4 text-center justify-content-center border border-secondary">
+      <p>機能が気になる方へ！</br>
+         登録せずにサイトの閲覧が可能</br>
+         になっています。(※閲覧のみ)
+      </p>
+    </div>
+    <div class="col-lg-3 mx-4 text-center justify-content-center border border-secondary">
+      <p>初めての方へ！</br>
+         以下のリンクは新規登録画面への</br>
+         リンクとなっています。
+      </p>
+    </div>
+    <div class="col-lg-3 mx-4 text-center justify-content-center border border-secondary">
+      <p>既に登録済みの方へ！</br>
+         以下のリンクはログイン画面への</br>
+         リンクになっています。
+      </p>
+    </div>
+  </div>
+
+  <div class="row my-4 justify-content-center">
+    <div class="col-lg-3 mx-4 p-4  btn btn-info">
+      <%= link_to "お試しの方はこちら", customers_guest_sign_in_path, method: :post, class: "text-white" %>
+    </div>
+    <div class="col-lg-3 mx-4 p-4 btn btn-primary">
+      <%= link_to "初めての方はこちら", new_customer_registration_path, class: "text-white" %>
+    </div>
+    <div class="col-lg-3 mx-4 p-4 btn btn-success">
+      <%= link_to "登録済みの方はこちら", new_customer_session_path, class: "text-white" %>
+    </div>
+  </div>
+
+  </div>
+</div>
