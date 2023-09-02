@@ -14,7 +14,9 @@
     <header>
       <nav class="navbar p-5 navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <h3 class="text-white">食べるコミュニケーション</h3>
+          <div class="col-lg-4">
+            <h3 class="text-white">食べるコミュニケーション</h3>
+          </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -22,27 +24,33 @@
           <div class="collapse navbar-collapse text-white" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto" >
               <% if customer_signed_in? %>
-                <li>
-                  <%= link_to "ホーム画面リンク", customers_homes_top_path, method: :delete, class:"m-2 text-light" %>
+              <div class="d-flex flex-wrap col-lg-8 justify-content-center text-center">
+                <li class="col-lg-6 mt-1 justify-content-center">
+                  <%= link_to "ホーム画面へ", customers_homes_top_path, method: :delete, class:"m-2 text-light" %>
                 </li>
-                <li>
-                  <%= link_to "投稿リンク", new_customers_post_path, class:"m-2 text-light" %>
+                <li class="col-lg-6 mt-1 justify-content-center">
+                  <%= link_to "投稿へ", new_customers_post_path, class:"m-2 text-light" %>
                 </li>
-                <li>
-                <%= link_to "プロフィールリンク", customers_members_profile_path, class:"m-2 text-light" %>
+                <li class="col-lg-6 mt-1 justify-content-center">
+                <%= link_to "プロフィールへ", customers_members_profile_path, class:"m-2 text-light" %>
                 </li>
-                <li>
-                  <%= link_to "管理者向け投稿リンク", customers_homes_new_path, class:"m-2 text-light" %>
+                <li class="col-lg-6 mt-1 justify-content-center">
+                  <%= link_to "管理者向け投稿へ", customers_homes_new_path, class:"m-2 text-light" %>
                 </li>
-                <li>
+              </div>
+              <div class="d-flex flex-column col-lg-4">
+                <li class="col my-1 justify-content-center">
                 <%= link_to "キーワード検索", customers_keyword_index_path, class:"m-2 text-light" %>
                 </li>
-                <li>
-                  <%= link_to "タグ検索", customers_tag_index_path, method: :delete, class:"m-2 text-light" %>
+                <li class="col my-1 justify-content-center">
+                  <%= link_to "タグ検索", customers_tag_index_path, class:"m-2 text-light" %>
                 </li>
+              </div>
+              <div class="col-lg-4 justify-content-center">
                 <li>
-                  <%= link_to "ログアウトリンク", destroy_customer_session_path, class:"m-2 text-light" %>
+                  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class:"m-2 text-light" %>
                 </li>
+              </div>
               <% elsif admin_signed_in? %>
                 <li>
                   <%= link_to "会員一覧", admins_customers_index_path, class:"m-2 text-light" %>
