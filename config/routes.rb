@@ -6,11 +6,16 @@ devise_for :customers, controllers: {
   sessions: 'customers/sessions'
 }
 
+#ゲスト用ログイン
+  devise_scope :customer do
+    post 'customers/guest_sign_in', to: 'customers/sessions#guest_sign_in'
+  end
+
 # 管理者用
 # URL /admin/sign_in ...
-devise_for :admins, controllers: {
-  sessions: "admins/sessions"
-}
+  devise_for :admins, controllers: {
+    sessions: "admins/sessions"
+  }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   #以下管理者用
