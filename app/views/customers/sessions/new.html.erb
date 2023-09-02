@@ -1,35 +1,39 @@
 <main>
   <div class="container">
-    <div class="row my-3">
-      <h5>ログイン画面</h5>
+    <div class="row my-3 justify-content-center">
+      <div class="col-lg-4 justify-content-center">
+        <h5>ログイン画面</h5>
+      </div>
     </div>
 
-    <div class="row my-2">
-      <strong>会員の方はこちらからログイン</strong>
+    <div class="row my-2 justify-content-center">
+      <div class="col-lg-4 justify-content-center">
+        <strong>会員の方はこちらからログイン</strong>
+      </div>
     </div>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
     <div class="row justify-content-center">
-      <div class="col-lg-3 my-2">
+      <div class="col-lg-3 my-2 justify-content-center">
         <%= f.label :メールアドレス %>
       </div>
-      <div class="col-lg-5 my-2">
+      <div class="col-lg-3 my-2 justify-content-center">
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
     </div>
 
     <div class="row justify-content-center">
-      <div class="col-lg-3 my-2">
+      <div class="col-lg-3 my-2 justify-content-center">
         <%= f.label :パスワード %>
       </div>
-      <div class="col-lg-5 my-2" %>
+      <div class="col-lg-3 my-2 justify-content-center">
         <%= f.password_field :password, autocomplete: "current-password" %>
       </div>
     </div>
 
     <div class="row my-3 justify-content-center">
-      <div class="col-lg-3">
+      <div class="col-lg-3 justify-content-center">
         <%= f.submit "ログイン", class: "btn btn-success" %>
       </div>
     </div>
@@ -37,14 +41,14 @@
     <% end %>
   </div>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6">
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-4 justify-content-center">
         <strong>会員登録がお済でない方</strong>
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-lg-8 my-3">
+      <div class="col-lg-4 my-3 justify-content-center">
         <p>
           <%= link_to "こちら", new_customer_registration_path %>
           から新規登録を行ってください。</p>
