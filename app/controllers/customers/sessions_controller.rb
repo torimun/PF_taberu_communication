@@ -38,7 +38,7 @@ class Customers::SessionsController < Devise::SessionsController
   # protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_in, keys: [:user_name])
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:user_name, :introduction])
   end
 
   # If you have extra params to permit, append them to the sanitizer.

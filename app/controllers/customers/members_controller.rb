@@ -1,7 +1,7 @@
 class Customers::MembersController < ApplicationController
 
   def show
-
+    
   end
 
   def edit

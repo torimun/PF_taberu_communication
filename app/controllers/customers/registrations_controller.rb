@@ -5,7 +5,7 @@ class Customers::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
   before_action :configure_permitted_parameters, only: [:create]
   before_action :ensure_normal_customer, only: :destroy
-  
+
   # GET /resource/sign_up
   # def new
   #   super
@@ -53,7 +53,7 @@ class Customers::RegistrationsController < Devise::RegistrationsController
   # protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:user_name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:user_name, :introduction])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
