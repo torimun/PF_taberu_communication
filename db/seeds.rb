@@ -12,10 +12,10 @@ Admin.create!(
   password: 'admins'
 )
 
-#以下ゲスト用アカウント
+#以下テスト用アカウント
 Customer.create!(
-  user_name: 'customers',
-  email: 'customer@customer',
-  introduction: 'これはゲストアカウント為、編集機能はご利用できません。',
-  password: 'customers'
+  user_name: 'customers1',
+  email: 'customer1@customer1',
+  introduction: 'これはテストアカウント',
+  password: 'customers1'
   )
