@@ -5,7 +5,7 @@ class Customers::HomesController < ApplicationController
   end
 
   def welcome
-
+    
   end
 
   def new
