@@ -23,7 +23,7 @@ class Customers::SessionsController < Devise::SessionsController
     customer = Customer.guest
     sign_in customer
     redirect_to customers_homes_top_path,
-    notice: 'ゲストユーザーとしてログインしました。ゲストユーザーでは閲覧機能のみ利用可能です。'
+    notice: 'ゲストユーザーとしてログインしました。ゲストユーザーでは編集機能以外利用可能です。'
   end
 
   def after_sign_in_path_for(resource)

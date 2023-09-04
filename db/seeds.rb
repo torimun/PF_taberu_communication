@@ -14,5 +14,6 @@ Admin.create!(
 Customer.create!(
   user_name: 'customers',
   email: 'customer@customer',
+  introduction: 'これはゲストアカウント為、編集機能はご利用できません。',
   password: 'customers'
   )
