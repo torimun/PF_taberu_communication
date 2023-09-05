@@ -16,7 +16,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
 
       t.string :user_name, null: false
       t.text :introduction, {null: false, lengh: {maximum: 100}}
-
+      t.boolean :is_deleted, null: false, default: false
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
       # t.datetime :current_sign_in_at
