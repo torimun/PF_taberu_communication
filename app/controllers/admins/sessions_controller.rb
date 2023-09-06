@@ -2,6 +2,7 @@
 
 class Admins::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  before_action :signed_in_check
 
   # GET /resource/sign_in
   # def new
@@ -24,6 +25,12 @@ class Admins::SessionsController < Devise::SessionsController
 
   def after_sign_in_path_for(resource)
     new_admin_session_path
+  end
+
+  def signed_in_check
+    if current_customer
+      redirect_to customers_homes_top_path
+    end
   end
 
   # protected
