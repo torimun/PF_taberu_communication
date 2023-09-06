@@ -28,6 +28,15 @@
 
     <div class="row mb-1 justify-content-center">
       <div class="col-lg-3 justify-content-center">
+        <%= f.label :自己紹介文 %>
+      </div>
+      <div class="col-lg-3 justify-content-center">
+        <%= f.text_area :introduction, autocomplete: "introduction", class: "p-1" %>
+      </div>
+    </div>
+
+    <div class="row mb-1 justify-content-center">
+      <div class="col-lg-3 justify-content-center">
         <%= f.label :パスワード（６文字以上） %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %>characters minimum)</em>
