@@ -1,7 +1,15 @@
 <div class="container">
   <div class="row">
-    <%= form_with model: @Post, url: new_customers_post_path, method: :post do |f|%>
-    
+    <%= form_with model: @post, url: new_customers_post_path, method: :post do |f|%>
+      <%= f.label :タグ %><br>
+      <%# Edit用に@post.tags.pluck(:name)でタグの配列を取得 %>
+      <%= f.text_field :tag, value: @post.tags.pluck(:name) %><br>
+      <small>スペースで区切ることで複数指定できます。</small><br>
+      <%= f.label :ジャンル %><br>
+      <%= f.text_field :genre %><br>
+      <%= f.label :投稿コメント %><br>
+      <%= f.text_area :comment %><br>
+      <%= f.submit %>
     <% end %>
   </div>
 </div>

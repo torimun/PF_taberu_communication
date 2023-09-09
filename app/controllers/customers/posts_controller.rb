@@ -6,8 +6,16 @@ class Customers::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.save
-    redirect_to customers_post_path(@post.id)
+
+    if @post.save
+      # 投稿が保存された場合はタグも保存する
+      @post.save_tags(params[:post][:tag])
+      #保存成功で投稿詳細へ
+      redirect_to customers_post_path(@post.id)
+    else
+      #失敗した場合は投稿画面に戻る
+      redirect_to  new_customers_post_path
+    end
   end
 
   def index
@@ -18,10 +26,16 @@ class Customers::PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  # def destroy
+  #   @post = Post.find(params[:id])
+  #   @post.destroy(params[:id])
+  #   redirect_to customers_posts_path
+  # end
+
   private
 
   def post_params
-    params.require(:post).permit(:customer_id, :tug_id, :comment_id, :images)
+    params.require(:post).permit(:customer_id, :genre, :comment, :images)
   end
 
 end
