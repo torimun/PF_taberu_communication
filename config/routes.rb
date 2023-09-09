@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  #投稿タグ関連
+  resources :posts, except: %w[index]
+  resources :tags, only: %w[index show destroy]
+
 # 顧客用
 # URL /customers/sign_in ...
   devise_for :customers, controllers: {

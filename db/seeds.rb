@@ -17,5 +17,5 @@ Customer.create!(
   user_name: 'customers1',
   email: 'customer1@customer1',
   introduction: 'これはテストアカウント',
-  password: 'customers1'
+  password: 'customers'
   )
