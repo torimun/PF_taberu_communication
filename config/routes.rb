@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   #以下管理者用
   namespace :admins do
-    get 'homes/top'
+    get 'homes/top', to: "homes#top"
     resources :posts, only: [:index, :new, :create]
     resources :seasonings_spices, only: [:new, :create, :show, :edit, :update]
   end
