@@ -66,10 +66,10 @@ Rails.application.routes.draw do
 
   #postsコントローラー関連
   namespace :customers do
-    get 'customers/posts/new', to: 'posts#new', as: 'posts_new'
-    post 'customers/posts/create', to: 'posts#create', as: 'posts_create'
-    get 'customers/posts', to: 'posts#index', as: 'posts'
-    get 'customers/posts/:id', to: 'posts#show', as: 'posts_show'
+    get 'posts/new', to: 'posts#new', as: 'posts_new'
+    post 'posts/create', to: 'posts#create', as: 'posts_create'
+    get 'posts', to: 'posts#index', as: 'posts'
+    get 'posts/:id', to: 'posts#show', as: 'posts_show'
     resources :tags, only: [:index]
   end
 

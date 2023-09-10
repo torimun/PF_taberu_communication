@@ -14,7 +14,7 @@ class Customers::PostsController < ApplicationController
       redirect_to customers_post_path(@post.id)
     else
       #失敗した場合は投稿画面に戻る
-      redirect_to  new_customers_post_path
+      redirect_to customers_posts_new_path
     end
   end
 
@@ -35,7 +35,7 @@ class Customers::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:customer_id, :genre, :comment, :images)
+    params.require(:post).permit(:customer_id, :tag, :genre, :comment, :images)
   end
 
 end
