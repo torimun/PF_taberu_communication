@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  #投稿タグ関連
-  resources :posts, except: %w[index]
-  resources :tags, only: %w[index show destroy]
-
 # 顧客用
 # URL /customers/sign_in ...
   devise_for :customers, controllers: {
@@ -45,13 +41,13 @@ Rails.application.routes.draw do
     get 'homes/top'
     get 'homes/welcome', to: 'homes#welcome'
     get 'homes/new'
-    post 'homes/:id', to: 'homes#create'
+    post 'homes/create', to: 'homes#create'
     get 'homes/id', to: 'homes#show'
   end
 
   #membersコントローラー関連
   namespace :customers do
-    get 'members/profile', to: 'members#show'
+    get 'members/profile/:id', to: 'members#show'
     get 'members/information/edit', to: 'members#edit'
     patch 'members/information', to: 'members#update'
 
@@ -70,7 +66,19 @@ Rails.application.routes.draw do
 
   #postsコントローラー関連
   namespace :customers do
-    resources :posts, only: [:new, :create, :index, :show]
+    get 'customers/posts/new', to: 'posts#new', as: 'posts_new'
+    post 'customers/posts/create', to: 'posts#create', as: 'posts_create'
+    get 'customers/posts', to: 'posts#index', as: 'posts'
+    get 'customers/posts/:id', to: 'posts#show', as: 'posts_show'
+    resources :tags, only: [:index]
   end
 
 end
+
+
+
+
+# get 'customers/posts/new', to: 'posts#new'
+#     post 'customers/posts/:id', to: 'posts#create'
+#     get 'customers/posts', to: 'posts#index'
+#     get 'customers/posts/:id', to: 'posts#show'
