@@ -47,7 +47,7 @@ Rails.application.routes.draw do
 
   #membersコントローラー関連
   namespace :customers do
-    get 'members/profile/:id', to: 'members#show'
+    get 'members/profile', to: 'members#show'
     get 'members/information/edit', to: 'members#edit'
     patch 'members/information', to: 'members#update'
 
