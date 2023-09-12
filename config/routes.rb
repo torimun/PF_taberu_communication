@@ -29,9 +29,9 @@ Rails.application.routes.draw do
 
   namespace :admins do
     get 'customers/index'
-    get 'customers/show'
-    get '/admins/customers/:id/list_of_posts', to: 'customers#list'
-    get '/admin/customers/:id/edit', to: 'customers#edit'
+    get '/admin/customers/:id', to: 'customers#show', as: 'customers_show'
+    get '/admins/customers/list_of_posts/:id', to: 'customers#list', as: 'customers_posts_list'
+    get '/admin/customers/edit/:id', to: 'customers#edit', as: 'customers_edit'
     patch '/admin/customers/:id', to: 'customers#update'
   end
 
