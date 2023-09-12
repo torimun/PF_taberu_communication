@@ -22,4 +22,5 @@ class Admins::CustomersController < ApplicationController
   def customers_params
     params.require(:customer).permit(:user_name, :introduction, :is_deleted)
   end
+
 end

@@ -74,11 +74,3 @@ Rails.application.routes.draw do
   end
 
 end
-
-
-
-
-# get 'customers/posts/new', to: 'posts#new'
-#     post 'customers/posts/:id', to: 'posts#create'
-#     get 'customers/posts', to: 'posts#index'
-#     get 'customers/posts/:id', to: 'posts#show'
