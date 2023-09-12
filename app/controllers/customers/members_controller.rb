@@ -9,9 +9,12 @@ class Customers::MembersController < ApplicationController
   end
 
   def update
-    @customer = current_customer
-    @customer.update(customers_params)
-    redirect_to customers_members_profile_path(@csutomer)
+    if @customer = current_customer
+      @customer.update(customers_params)
+      redirect_to customers_homes_top_path
+    else
+      render :show
+    end
   end
 
   def confirm

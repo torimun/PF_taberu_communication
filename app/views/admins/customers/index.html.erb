@@ -1,0 +1,52 @@
+<main>
+  <div class="container">
+    <div class="row my-3">
+      <div class="col-lg-6 justify-content-center">
+        <h4>会員一覧画面</h4>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-10 justify-content-center">
+        <table class="border-top border-bottom" width="100%">
+          <tr class="border-bottom">
+            <th width="20%">会員ID</th>
+            <th width="30%">氏名</th>
+            <th width="30%">メールアドレス</th>
+            <th width="20%">ステータス</th>
+          </tr>
+    <!--繰り返し文(each文)を使って以下の物を量産　1５個分あたりになったらページネーションで次のページに飛ばす-->
+          <% @customers.each do |customer| %>
+          <tr class="border-bottom">
+            <td width="20%">
+              <%= customer.id %>
+            </td>
+            <td width="30%">
+              <%= link_to admins_customers_show_path(customer.id) do %>
+                <%= customer.user_name %>
+              <% end %>
+            </td>
+            <td width="30%">
+              <%= customer.email %>
+            </td>
+            <td width="20%">
+            <% if customer.is_deleted == false %>
+              <p class="text-success">有効</p>
+            <% else %>
+              <P>無効</P>
+            <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+
+    <div class="row mt-5 justify-content-center">
+      <div class="col-lg4">
+        <%= paginate @customers %>
+      </div>
+    </div>
+
+  </div>
+</main>
