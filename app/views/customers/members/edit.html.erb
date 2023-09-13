@@ -1,7 +1,7 @@
 <div class="container px-3 py-5">
   <div class="row p-2 border border-secondary">
     <div class="col-lg-9">
-      <%= form_with model: @customer, url: , method: :patch do |f| %>
+      <%= form_with model: @customer, url: customers_members_information_path, method: :patch do |f| %>
       <div class="row justify-content-center">
         <div class="col-lg-3 justify-content-center border border-secondary">
           <p><%= f.label :ユーザー名 %></p>

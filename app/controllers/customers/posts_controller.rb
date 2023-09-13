@@ -6,12 +6,12 @@ class Customers::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-
-    if @post.save
+    @post.customer_id = current_customer.id
+    if @post.save!
       # 投稿が保存された場合はタグも保存する
       @post.save_tags(params[:post][:tag])
       #保存成功で投稿詳細へ
-      redirect_to customers_post_path(@post.id)
+      redirect_to customers_posts_show_path(@post.id)
     else
       #失敗した場合は投稿画面に戻る
       redirect_to customers_posts_new_path
@@ -35,7 +35,7 @@ class Customers::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:customer_id, :tag, :genre, :comment, :images)
+    params.require(:post).permit(:customer_id, :genre, :comment, :images)
   end
 
 end

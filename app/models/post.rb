@@ -13,7 +13,7 @@ class Post < ApplicationRecord
     tag_list = tags.split(/[[:blank:]]+/)
 
     # 自分自身に関連づいたタグを取得する
-    current_tags = self.tags.pluck(:name)
+    current_tags = self.tags.pluck(:tag)
 
     # (1) 元々自分に紐付いていたタグと投稿されたタグの差分を抽出
     #   -- 記事更新時に削除されたタグ
@@ -30,13 +30,13 @@ class Post < ApplicationRecord
     old_tags.each do |old|
       # tag_mapsテーブルにあるpost_idとtag_idを削除
       #   後続のfind_byでtag_idを検索
-      self.tags.delete Tag.find_by(name: old)
+      self.tags.delete Tag.find_by(tag: old)
     end
 
     # tagsテーブルから(2)のタグを探して、tag_mapsテーブルにtag_idを追加する
     new_tags.each do |new|
       # 条件のレコードを初めの1件を取得し1件もなければ作成する
-      new_post_tag = Tag.find_or_create_by(name: new)
+      new_post_tag = Tag.find_or_create_by(tag: new)
 
       # tag_mapsテーブルにpost_idとtag_idを保存
       #   配列追加のようにレコードを渡すことで新規レコード作成が可能

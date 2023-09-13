@@ -31,7 +31,7 @@ class Customers::MembersController < ApplicationController
   private
 
   def customers_params
-    params.require(:customer).permit(:user_name, :introduction)
+    params.require(:customer).permit(:user_name, :email, :introduction)
   end
 
 end
