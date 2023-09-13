@@ -30,9 +30,10 @@ Rails.application.routes.draw do
   namespace :admins do
     get 'customers/index'
     get '/admin/customers/:id', to: 'customers#show', as: 'customers_show'
-    get '/admins/customers/list_of_posts/:id', to: 'customers#list', as: 'customers_posts_list'
+    get '/admins/customers/list', to: 'customers#list', as: 'customers_list'
+    get '/admins/customers/list_show/:id', to: 'customers#list_show', as: 'customers_list_show'
     get '/admin/customers/edit/:id', to: 'customers#edit', as: 'customers_edit'
-    patch '/admin/customers/:id', to: 'customers#update'
+    patch '/admin/customers/:id', to: 'customers#update', as: 'customers_update'
   end
 
   #以下顧客用

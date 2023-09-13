@@ -1,0 +1,49 @@
+<div class="container px-3 py-5">
+  <div class="row p-2 border border-secondary">
+    <div class="col-lg-9">
+      <div class="row justify-content-center">
+        <div class="col-lg-3 justify-content-center border border-secondary">
+          <p>ユーザー名</p>
+        </div>
+        <div class="col-lg-8 justify-content-center border border-secondary">
+          <p><%= @customer.user_name %></p>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-3 justify-content-center border border-secondary">
+          <p>メールアドレス</p>
+        </div>
+        <div class="col-lg-8 justify-content-center border border-secondary">
+          <p><%= @customer.email %></p>
+        </div>
+      </div>
+      <div class="row mt-3 justify-content-center">
+        <div class="col-lg-3 justify-content-center border border-secondary">
+          <p>自己紹介文</p>
+        </div>
+        <div class="col-lg-8 justify-content-center border border-secondary">
+          <p><%= @customer.introduction %></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 border border-secondary justify-content-center">
+      <div class="row mt-3 p-1 border-bottom border-secondary justify-content-center">
+        <div class="col-lg-8 ">
+          <p>会員ステータス</p>
+        </div>
+        <div class="col-lg-4">
+          <% if @customer.is_deleted == false %>
+            <p class="text-success">有効</p>
+          <% else %>
+            <P>無効</P>
+          <% end %>
+        </div>
+      </div>
+      <div class="row my-3 p-1 justify-content-center">
+        <div class="col-lg-6">
+          <%= link_to "編集する", admins_customers_edit_path(@customer.id), class: "btn btn-success" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
