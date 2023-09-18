@@ -35,7 +35,7 @@ class Customers::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:customer_id, :genre, :comment, :images)
+    params.require(:post).permit(:customer_id, :genre, :comment, images: [])
   end
 
 end

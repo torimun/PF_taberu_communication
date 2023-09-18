@@ -1,7 +1,53 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      
+      <%= @post.customer.user_name %>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col">
+      <%= @post.created_at %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <% @post.images.each do |image|%>
+        <%= image_tag image %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+    <% @post.tags.each do |tag| %>
+      <%# タグを展開 %>
+      <li>
+        <%= tag.tag %>
+      </li>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <%= @post.comment %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <%= @post.genre %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <%# @post.comments.each do |comment| %>
+        <%#= comment %>
+      <%# end %>
+    </div>
+  </div>
+
 </div>
