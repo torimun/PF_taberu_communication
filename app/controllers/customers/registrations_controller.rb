@@ -47,7 +47,7 @@ class Customers::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_sign_in_path_for(resource)
-    customers_members_profile_path
+    customers_path(@customer.id)
   end
 
   # protected
