@@ -42,7 +42,7 @@
 </div>
 
 <% @posts.each do |post|%>
-<div class="container mt-2 border border-secondary">
+<div class="container my-2 border border-secondary">
   <div class="row mb-4 border border-secondary">
     <div class="col-lg-2 p-1 d-flex align-items-center">
       <div>ユーザー名：</div>
@@ -52,6 +52,10 @@
     </div>
     <div class="col-lg-2 p-1  border-right border-secondary">
       <%= post.created_at.strftime('%Y/%m/%d %H:%M') %>
+    </div>
+
+    <div class="col-lg-1">
+      <p class="text-center">タグ：</p>
     </div>
 
     <% post.tags.each do |tag| %>
@@ -99,3 +103,9 @@
 
 </div>
 <% end %>
+
+<div class="row my-5 justify-content-center">
+  <div class="col-lg-3 justify-content-center">
+    <%= paginate @posts %>
+  </div>
+</div>

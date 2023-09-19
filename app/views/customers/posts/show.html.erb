@@ -10,6 +10,10 @@
       <%= @post.created_at.strftime('%Y/%m/%d %H:%M') %>
     </div>
 
+    <div class="col-lg-1">
+      <p class="text-center">タグ：</p>
+    </div>
+
     <% @post.tags.each do |tag| %>
     <div class="col ">
       <%# タグを展開 %>

@@ -2,7 +2,7 @@ class Customers::MembersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @posts = @customer.posts.all
+    @posts = @customer.posts.page(params[:page]).per(5)
   end
 
   def edit
