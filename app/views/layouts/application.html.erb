@@ -32,7 +32,7 @@
                   <%= link_to "投稿へ", customers_posts_new_path, class:"m-2 text-light" %>
                 </li>
                 <li class="col-lg-6 mt-1 justify-content-center">
-                <%= link_to "プロフィールへ", customers_members_profile_path(current_customer.id), class:"m-2 text-light" %>
+                <%= link_to "プロフィールへ", customers_path(current_customer.id), class:"m-2 text-light" %>
                 </li>
                 <li class="col-lg-6 mt-1 justify-content-center">
                   <%= link_to "管理者向け投稿へ", customers_homes_new_path, class:"m-2 text-light" %>

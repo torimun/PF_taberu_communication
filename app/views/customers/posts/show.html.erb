@@ -1,5 +1,5 @@
 <div class="container mt-2 border border-secondary">
-  <div class="row  border border-secondary">
+  <div class="row mb-4 border border-secondary">
     <div class="col-lg-2 p-1 d-flex align-items-center">
       <div>ユーザー名：</div>
     </div>
@@ -29,16 +29,16 @@
   </div>
 
 
-  <div class="row">
+  <div class="row mt-4">
     <div class="col-lg-2 p-1 border border-secondary">
       <div>・ジャンル</div>
     </div>
     <% if @post.genre == nil %>
-    <div class="col-lg-6 p-1 border border-secondary">
+    <div class="col-lg-8 p-1 border border-secondary">
       <p>記載はありません<p>
     </div>
     <% else %>
-    <div class="col-lg-6 p-1 border border-secondary">
+    <div class="col-lg-8 p-1 border border-secondary">
       <%= @post.genre %>
     </div>
   </div>
@@ -48,7 +48,7 @@
     <div class="col-lg-2 p-1 border border-secondary">
       <div>・コメント</div>
     </div>
-    <div class="col-lg-6 p-1 border border-secondary">
+    <div class="col-lg-8 p-1 border border-secondary">
       <%= @post.comment %>
     </div>
   </div>
