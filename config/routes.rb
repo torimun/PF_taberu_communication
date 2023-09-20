@@ -63,6 +63,7 @@ Rails.application.routes.draw do
     get 'goods/index'
     get 'keyword/index'
     get 'tag/index'
+    get 'tag/show/:id', to: 'tag#show', as: 'tag_show'
   end
 
   #postsコントローラー関連
@@ -71,7 +72,10 @@ Rails.application.routes.draw do
     post 'posts/create', to: 'posts#create', as: 'posts_create'
     get 'posts', to: 'posts#index', as: 'posts'
     get 'posts/:id', to: 'posts#show', as: 'posts_show'
+  #以下タグ機能関連
     resources :tags, only: [:index]
+  #以下いいね機能関連
+    resource :favorites, only: [:create, :destroy]
   end
 
 end

@@ -6,6 +6,7 @@ class Customer < ApplicationRecord
 
   has_many :post_for_admins, dependent: :destroy
   has_many :posts, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   #ゲストログイン関連
   def self.guest

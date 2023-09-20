@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <% @tags.each do |tag|%>
+        <%= link_to customers_tag_show_path(tag.id) do %>
+          <%= tag.tag %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
