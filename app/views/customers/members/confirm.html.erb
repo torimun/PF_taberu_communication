@@ -14,7 +14,7 @@
 
     <div class="row justify-content-center">
       <div class="col-lg-2 justify-content-center">
-        <%= link_to "退会しない", customers_members_profile_path(@customer), class: "btn btn-primary" %>
+        <%= link_to "退会しない", customers_path(@customer), class: "btn btn-primary" %>
       </div>
       <div class="col-lg-2 justify-content-center">
         <%= link_to "退会する", customers_members_withdraw_path, method: :patch, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>

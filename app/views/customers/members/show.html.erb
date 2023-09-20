@@ -1,8 +1,8 @@
 <div class="container px-3 py-5">
-  <div class="row p-2 border border-secondary">
+  <div class="row p-2 rounded-pill border border-secondary">
     <div class="col-lg-9">
       <div class="row justify-content-center">
-        <div class="col-lg-3 justify-content-center border border-secondary">
+        <div class="col-lg-2 justify-content-center border border-secondary">
           <p>ユーザー名</p>
         </div>
         <div class="col-lg-8 justify-content-center border border-secondary">
@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="row justify-content-center">
-        <div class="col-lg-3 justify-content-center border border-secondary">
+        <div class="col-lg-2 justify-content-center border border-secondary">
           <p>メールアドレス</p>
         </div>
         <div class="col-lg-8 justify-content-center border border-secondary">
@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="row mt-3 justify-content-center">
-        <div class="col-lg-3 justify-content-center border border-secondary">
+        <div class="col-lg-2 justify-content-center border border-secondary">
           <p>自己紹介文</p>
         </div>
         <div class="col-lg-8 justify-content-center border border-secondary">
@@ -42,7 +42,7 @@
 </div>
 
 <% @posts.each do |post|%>
-  <div class="container my-2 border border-secondary">
+  <div class="container my-2 rounded border border-secondary">
     <%= link_to customers_post_path(post.id), class: "text-secondary text-decoration-none" do %>
     <div class="row mb-4 border border-secondary">
       <div class="col-lg-2 p-1 d-flex align-items-center">
