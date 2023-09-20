@@ -11,10 +11,10 @@ class Customers::PostsController < ApplicationController
       # 投稿が保存された場合はタグも保存する
       @post.save_tags(params[:post][:tag])
       #保存成功で投稿詳細へ
-      redirect_to customers_posts_show_path(@post.id)
+      redirect_to customers_post_path(@post.id)
     else
       #失敗した場合は投稿画面に戻る
-      redirect_to customers_posts_new_path
+      redirect_to new_customers_post_path
     end
   end
 

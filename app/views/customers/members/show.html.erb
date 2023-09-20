@@ -42,8 +42,8 @@
 </div>
 
 <% @posts.each do |post|%>
-  <%= link_to customers_posts_show_path(post.id), class: "text-secondary text-decoration-none" do %>
   <div class="container my-2 border border-secondary">
+    <%= link_to customers_post_path(post.id), class: "text-secondary text-decoration-none" do %>
     <div class="row mb-4 border border-secondary">
       <div class="col-lg-2 p-1 d-flex align-items-center">
         <div>ユーザー名：</div>
@@ -101,9 +101,8 @@
         <%= post.comment %>
       </div>
     </div>
-
-  </div>
   <% end %>
+  </div>
 <% end %>
 
 <div class="container">

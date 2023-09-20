@@ -7,6 +7,10 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
   belongs_to :customer
 
+  def favorited_by?(customer)
+    favorites.exists?(customer_id: customer.id)
+  end
+
   def save_tags(tags)
 
     # タグをスペース区切りで分割し配列にする

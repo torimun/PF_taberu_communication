@@ -64,4 +64,22 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="col">
+      <% if @post.favorited_by?(current_customer) %>
+        <p>
+          <%= link_to customers_post_favorites_path(@post), method: :delete do %>
+            ♥<%= @post.favorites.count %> いいね
+          <% end %>
+        </p>
+        <% else %>
+        <p>
+          <%= link_to customers_post_favorites_path(@post), method: :post do %>
+            ♡<%= @post.favorites.count %> いいね
+          <% end %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+
 </div>

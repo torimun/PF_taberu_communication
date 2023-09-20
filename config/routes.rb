@@ -68,14 +68,16 @@ Rails.application.routes.draw do
 
   #postsコントローラー関連
   namespace :customers do
-    get 'posts/new', to: 'posts#new', as: 'posts_new'
-    post 'posts/create', to: 'posts#create', as: 'posts_create'
-    get 'posts', to: 'posts#index', as: 'posts'
-    get 'posts/:id', to: 'posts#show', as: 'posts_show'
-  #以下タグ機能関連
-    resources :tags, only: [:index]
-  #以下いいね機能関連
-    resource :favorites, only: [:create, :destroy]
+    resources :posts, only: [:new, :create, :index, :show] do
+      # get 'posts/new', to: 'posts#new', as: 'posts_new'
+      # post 'posts/create', to: 'posts#create', as: 'posts_create'
+      # get 'posts', to: 'posts#index', as: 'posts'
+      # get 'posts/:id', to: 'posts#show', as: 'posts_show'
+      #以下タグ機能関連
+      resources :tags, only: [:index]
+      #以下いいね機能関連
+      resource :favorites, only: [:create, :destroy]
+    end
   end
 
 end
