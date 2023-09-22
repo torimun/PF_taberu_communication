@@ -29,11 +29,10 @@ Rails.application.routes.draw do
 
   namespace :admins do
     get 'customers/index'
-    get '/admin/customers/:id', to: 'customers#show', as: 'customers_show'
-    get '/admins/customers/list', to: 'customers#list', as: 'customers_list'
-    get '/admins/customers/list_show/:id', to: 'customers#list_show', as: 'customers_list_show'
-    get '/admin/customers/edit/:id', to: 'customers#edit', as: 'customers_edit'
-    patch '/admin/customers/:id', to: 'customers#update', as: 'customers_update'
+    get 'customers/:id', to: 'customers#show', as: 'customers_show'
+    get 'customers/post_show/:id', to: 'customers#post_show', as: 'customers_post_show'
+    get 'customers/edit/:id', to: 'customers#edit', as: 'customers_edit'
+    patch 'customers/:id', to: 'customers#update', as: 'customers_update'
   end
 
   #以下顧客用
@@ -69,10 +68,6 @@ Rails.application.routes.draw do
   #postsコントローラー関連
   namespace :customers do
     resources :posts, only: [:new, :create, :index, :show] do
-      # get 'posts/new', to: 'posts#new', as: 'posts_new'
-      # post 'posts/create', to: 'posts#create', as: 'posts_create'
-      # get 'posts', to: 'posts#index', as: 'posts'
-      # get 'posts/:id', to: 'posts#show', as: 'posts_show'
       #以下タグ機能関連
       resources :tags, only: [:index]
       #以下いいね機能関連

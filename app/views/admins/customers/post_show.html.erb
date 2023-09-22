@@ -1,0 +1,67 @@
+<div class="container mt-2 border border-secondary">
+  <div class="row mb-4 border border-secondary">
+    <div class="col-lg-2 p-1 d-flex align-items-center">
+      <div>ユーザー名：</div>
+    </div>
+    <div class="col-lg-2 p-1 d-flex align-items-center border-right border-secondary">
+      <%= @post.customer.user_name %>
+    </div>
+    <div class="col-lg-2 p-1  border-right border-secondary">
+      <%= @post.created_at.strftime('%Y/%m/%d %H:%M') %>
+    </div>
+
+    <div class="col-lg-1">
+      <p class="text-center">タグ：</p>
+    </div>
+
+    <% @post.tags.each do |tag| %>
+    <div class="col ">
+      <%# タグを展開 %>
+        <p class="text-center">#
+          <%= tag.tag %>
+        </p>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="row my-3 justify-content-center">
+    <% @post.images.each do |image|%>
+    <div class="col-lg-3 m-3">
+        <%= image_tag image, size: '150x150' %>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-lg-2 p-1 border border-secondary">
+      <div>・ジャンル</div>
+    </div>
+    <% if @post.genre == nil %>
+    <div class="col-lg-8 p-1 border border-secondary">
+      <p>記載はありません<p>
+    </div>
+    <% else %>
+    <div class="col-lg-8 p-1 border border-secondary">
+      <%= @post.genre %>
+    </div>
+  </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-lg-2 p-1 border border-secondary">
+      <div>・コメント</div>
+    </div>
+    <div class="col-lg-8 p-1 border border-secondary">
+      <%= @post.comment %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <%# @post.comments.each do |comment| %>
+        <%#= comment %>
+      <%# end %>
+    </div>
+  </div>
+
+</div>

@@ -6,6 +6,11 @@ class Admins::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
+    @posts = @customer.posts.page(params[:page]).per(5)
+  end
+
+  def post_show
+    @post = Post.find(params[:id])
   end
 
   def edit
