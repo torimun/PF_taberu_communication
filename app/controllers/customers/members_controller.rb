@@ -3,6 +3,7 @@ class Customers::MembersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @posts = @customer.posts.page(params[:page]).per(5)
+    @comment = Comment.new
   end
 
   def edit
@@ -30,6 +31,10 @@ class Customers::MembersController < ApplicationController
   end
 
   private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
 
   def customers_params
     params.require(:customer).permit(:user_name, :email, :introduction)

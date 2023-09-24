@@ -55,11 +55,13 @@ Rails.application.routes.draw do
     get 'members/confirm_withdraw', to: 'members#confirm'
     #会員の退会処理
     patch 'members/withdraw', to: 'members#withdraw'
+
+    get 'members/:id/likes', to: 'members#likes', as: 'members_likes'
   end
 
   #いいね一覧、キーワード検索、タグ検索のコントローラー
   namespace :customers do
-    get 'goods/index'
+    get 'likes/like'
     get 'keyword/index'
     get 'tag/index'
     get 'tag/show/:id', to: 'tag#show', as: 'tag_show'
@@ -72,6 +74,8 @@ Rails.application.routes.draw do
       resources :tags, only: [:index]
       #以下いいね機能関連
       resource :favorites, only: [:create, :destroy]
+      #以下コメント機能
+      # resources :comments, only: [:create]
     end
   end
 

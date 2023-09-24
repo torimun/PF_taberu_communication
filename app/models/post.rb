@@ -11,6 +11,10 @@ class Post < ApplicationRecord
     favorites.exists?(customer_id: customer.id)
   end
 
+  # def self.search(keyword)
+  #   where("facility_name LIKE ? or address LIKE ? or detailed_description LIKE ?", "%#{sanitize_sql_like(keyword)}%", "%#{sanitize_sql_like(keyword)}%", "%#{sanitize_sql_like(keyword)}%")
+  # end
+
   def save_tags(tags)
 
     # タグをスペース区切りで分割し配列にする
