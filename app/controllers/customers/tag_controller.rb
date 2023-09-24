@@ -5,6 +5,6 @@ class Customers::TagController < ApplicationController
   end
 
   def show
-    @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).post : Post.all
+    @posts = Tag.find(params[:id]).posts
   end
 end

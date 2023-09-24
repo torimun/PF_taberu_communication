@@ -55,8 +55,6 @@ Rails.application.routes.draw do
     get 'members/confirm_withdraw', to: 'members#confirm'
     #会員の退会処理
     patch 'members/withdraw', to: 'members#withdraw'
-
-    get 'members/:id/likes', to: 'members#likes', as: 'members_likes'
   end
 
   #いいね一覧、キーワード検索、タグ検索のコントローラー
