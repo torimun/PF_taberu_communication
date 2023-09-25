@@ -12,10 +12,12 @@
 
   <body>
     <header>
-      <nav class="navbar p-5 navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar p-4 navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <div class="col-lg-4">
-            <h3 class="text-white">食べるコミュニケーション</h3>
+            <h4 class="text-white">
+              食べるコミュニケーション
+            </h4>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,32 +26,48 @@
           <div class="collapse navbar-collapse text-white" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto" >
               <% if customer_signed_in? %>
-              <div class="d-flex flex-wrap col-lg-7 justify-content-center text-center">
+              <div class="d-flex flex-wrap col-lg-6 justify-content-center text-center">
                 <li class="col-lg-6 mt-1 justify-content-center">
-                  <%= link_to "ホーム画面へ", customers_homes_top_path, class:"m-2 text-light" %>
+                  <%= link_to "ホーム画面", customers_homes_top_path, class:"text-light" %>
                 </li>
                 <li class="col-lg-6 mt-1 justify-content-center">
-                  <%= link_to "投稿へ", new_customers_post_path, class:"m-2 text-light" %>
+                  <%= link_to "投稿", new_customers_post_path, class:"text-light" %>
                 </li>
                 <li class="col-lg-6 mt-1 justify-content-center">
-                <%= link_to "プロフィールへ", customers_path(current_customer.id), class:"m-2 text-light" %>
+                <%= link_to "プロフィール", customers_path(current_customer.id), class:"text-light" %>
                 </li>
                 <li class="col-lg-6 mt-1 justify-content-center">
-                  <%= link_to "管理者向け投稿へ", customers_homes_new_path, class:"m-2 text-light" %>
+                  <%= link_to "管理者向け投稿", customers_homes_new_path, class:"text-light" %>
+                </li>
+
+                <li class="col-lg-6 mt-1 justify-content-center">
+                  <%= link_to "タグ一覧", customers_tag_index_path, class:"text-light" %>
+                </li>
+                <li class="col-lg-6 mt-1 justify-content-center">
+                  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class:"text-light" %>
                 </li>
               </div>
-              <div class="d-flex flex-column col-lg-4">
-                <li class="col my-1 justify-content-center">
-                <%= link_to "キーワード検索", customers_keyword_index_path, class:"m-2 text-light" %>
-                </li>
-                <li class="col my-1 justify-content-center">
-                  <%= link_to "タグ一覧", customers_tag_index_path, class:"m-2 text-light" %>
-                </li>
-              </div>
-              <div class="col-lg-4 justify-content-center">
-                <li>
-                  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class:"m-2 text-light" %>
-                </li>
+              <div class="col-lg-4">
+                <%= form_with url: customers_search_path, local: true, method: :get do |f| %>
+                  <div class="row m-1">
+                    <div class="col w-100">
+                      <%= f.text_field :word %>
+                    </div>
+                  </div>
+                  <div class="row m-1">
+                    <div class="col-lg-6">
+                      <%= f.select :range, options_for_select([['Customer'], ['Post']]) %>
+                    </div>
+                    <div class="col-lg-6">
+                      <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
+                    </div>
+                  </div>
+                  <div class="row mt-2 justify-content-center">
+                    <div class="col-lg-6">
+                      <%= f.submit "検索", class: "btn btn-primary w-100" %>
+                    </div>
+                  </div>
+                <% end %>
               </div>
               <% elsif admin_signed_in? %>
                 <li>
@@ -78,4 +96,5 @@
     <%= yield %>
   </body>
 </html>
-</html>
+
+<%#= link_to "キーワード検索", customers_searches_search_path, class:"m-2 text-light" %>

@@ -7,14 +7,25 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
   belongs_to :customer
 
+  #会員が投稿に対して「いいね」しているかを確認するメソッド
   def favorited_by?(customer)
     favorites.exists?(customer_id: customer.id)
   end
 
-  # def self.search(keyword)
-  #   where("facility_name LIKE ? or address LIKE ? or detailed_description LIKE ?", "%#{sanitize_sql_like(keyword)}%", "%#{sanitize_sql_like(keyword)}%", "%#{sanitize_sql_like(keyword)}%")
-  # end
+  #投稿の検索方法分岐
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @post = Post.where("comment LIKE?","#{word}")
+    elsif search == "forward_match"
+      @post = Post.where("comment LIKE?","#{word}%")
+    elsif search == "backward_match"
+      @post = Post.where("comment LIKE?","%#{word}")
+    else search == "partial_match"
+      @post = Post.where("comment LIKE?","%#{word}%")
+    end
+  end
 
+  #タグを保存するメソッド
   def save_tags(tags)
 
     # タグをスペース区切りで分割し配列にする

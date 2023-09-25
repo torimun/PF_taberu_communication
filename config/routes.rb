@@ -59,8 +59,11 @@ Rails.application.routes.draw do
 
   #いいね一覧、キーワード検索、タグ検索のコントローラー
   namespace :customers do
+    #検索時のコントローラーのアクションが行われるよう定義
+    get "search" => "searches#search"
+    #検索一覧画面のurl
+    get 'searches/search'
     get 'likes/like'
-    get 'keyword/index'
     get 'tag/index'
     get 'tag/show/:id', to: 'tag#show', as: 'tag_show'
   end
