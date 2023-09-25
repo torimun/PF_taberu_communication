@@ -1,5 +1,9 @@
 <div class="container px-3 py-5">
-  <div class="row p-2 rounded-pill border border-secondary">
+  <div class="row mb-3">
+    <h3>プロフィール画面</h3>
+  </div>
+
+  <div class="row p-2 border border-primary">
     <div class="col-lg-9">
       <div class="row justify-content-center">
         <div class="col-lg-2 justify-content-center border border-secondary">
@@ -52,7 +56,7 @@
 <% @posts.each do |post|%>
   <div class="container my-2 rounded border border-secondary">
     <%= link_to customers_post_path(post.id), class: "text-secondary text-decoration-none" do %>
-    <div class="row mb-4 border border-secondary">
+    <div class="row border border-secondary">
       <div class="col-lg-2 p-1 d-flex align-items-center">
         <div>ユーザー名：</div>
       </div>
@@ -77,25 +81,25 @@
       <% end %>
     </div>
 
-    <div class="row my-3 justify-content-center">
+    <div class="row justify-content-center">
       <% post.images.each do |image|%>
-      <div class="col-lg-3 m-3">
+      <div class="col-lg-3 my-3">
           <%= image_tag image, size: '150x150' %>
       </div>
       <% end %>
     </div>
 
 
-    <div class="row mt-4">
+    <div class="row">
       <div class="col-lg-2 p-1 border border-secondary">
         <div>・ジャンル</div>
       </div>
       <% if post.genre == nil %>
-      <div class="col-lg-8 p-1 border border-secondary">
+      <div class="col-lg-10 p-1 border border-secondary">
         <p>記載はありません<p>
       </div>
       <% else %>
-      <div class="col-lg-8 p-1 border border-secondary">
+      <div class="col-lg-10 p-1 border border-secondary">
         <%= post.genre %>
       </div>
     </div>
@@ -105,7 +109,7 @@
       <div class="col-lg-2 p-1 border border-secondary">
         <div>・コメント</div>
       </div>
-      <div class="col-lg-8 p-1 border border-secondary">
+      <div class="col-lg-10 p-1 border border-secondary">
         <%= post.comment %>
       </div>
     </div>

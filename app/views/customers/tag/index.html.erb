@@ -7,9 +7,9 @@
 
   <div class="row">
     <% @tags.each do |all_tag|%>
-      <div class="col-lg-1">
+      <div class="col-lg-1 d-flex flex-wrap">
         <%= link_to customers_tag_show_path(all_tag.id) do %>
-          <%= all_tag.tag %>
+          <p>#<%= all_tag.tag %></p>
         <% end %>
       </div>
     <% end %>
