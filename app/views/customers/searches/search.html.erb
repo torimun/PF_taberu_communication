@@ -1,7 +1,11 @@
+<div class="container px-3 py-5">
   <% if @range == "Customer" %>
     <% @customers.each do |customer| %>
+      <div class="row mb-3">
+        <h3>会員検索結果</h3>
+      </div>
       <div class="row p-2 border border-primary">
-        <div class="col-lg-9">
+        <div class="col-lg-9 justify-content-center">
           <div class="row justify-content-center">
             <div class="col-lg-2 justify-content-center border border-secondary">
               <p>ユーザー名</p>
@@ -10,7 +14,7 @@
               <p><%= customer.user_name %></p>
             </div>
           </div>
-          <div class="row mt-3 justify-content-center">
+          <div class="row justify-content-center">
             <div class="col-lg-2 justify-content-center border border-secondary">
               <p>自己紹介文</p>
             </div>
@@ -19,10 +23,21 @@
             </div>
           </div>
         </div>
+        <div class="col-lg-3 justify-content-center">
+      <div class="row mt-3 p-1 justify-content-center">
+        <div class="col-lg-8">
+          <%= link_to "会員のプロフィール画面へ", customers_path(customer.id), class: "btn btn-success" %>
+        </div>
+      </div>
+    </div>
       </div>
     <% end %>
   <% else %>
-    <!--検索対象モデルがCustomerではない時(= 検索対象モデルがPostの時) -->
+    <div class="container">
+      <div class="row mb-3">
+        <h3>投稿検索結果</h3>
+      </div>
+    </div>
       <% @posts.each do |post| %>
       <div class="container my-2 rounded border border-secondary">
         <%= link_to customers_post_path(post.id), class: "text-secondary text-decoration-none" do %>
@@ -59,7 +74,6 @@
           <% end %>
         </div>
 
-
         <div class="row">
           <div class="col-lg-2 p-1 border border-secondary">
             <div>・ジャンル</div>
@@ -85,5 +99,21 @@
         </div>
         <% end %>
       </div>
-      <% end %>
+    <% end %>
   <% end %>
+
+    <!--<div class="container">-->
+    <!--  <div class="row">-->
+    <!--    <h3>検索結果</h3>-->
+    <!--  </div>-->
+    <!--  <div class="row justify-content-center">-->
+    <!--    <div class="col-lg-6 justify-content-center">-->
+    <!--      <p>-->
+    <!--        申し訳ありません。</br>-->
+    <!--        指定された条件から検索した結果、</br>-->
+    <!--        一致する条件はありませんでした。-->
+    <!--      </p>-->
+    <!--    </div>-->
+    <!--  </div>-->
+    <!--</div>-->
+
