@@ -56,7 +56,7 @@
                   </div>
                   <div class="row m-1">
                     <div class="col-lg-6">
-                      <%= f.select :range, options_for_select([['Customer'], ['Post']]) %>
+                      <%= f.select :range, options_for_select([['Post'],['Customer']]) %>
                     </div>
                     <div class="col-lg-6">
                       <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
