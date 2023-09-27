@@ -1,0 +1,48 @@
+<div class="container">
+  <%= form_with model: @post_for_admin, url: customers_homes_create_path do |f| %>
+    <div class="row">
+      <%= f.file_field :image %>
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <%= f.label :分類 %>
+      </div>
+      <div class="col-lg-6">
+        <%= f.text_field :classification %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <%= f.label :名前 %>
+      </div>
+      <div class="col-lg-6">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4">
+          <%= f.label :詳細 %>
+      </div>
+      <div class="col-lg-6">
+      <%= f.text_field :detail %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4">
+          <%= f.label :用途 %>
+      </div>
+      <div class="col-lg-6">
+        <%= f.text_field :usega %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6">
+        <%= f.submit :送信する, class: "btn btn-success" %>
+      </div>
+    </div>
+  <% end %>
+</div>

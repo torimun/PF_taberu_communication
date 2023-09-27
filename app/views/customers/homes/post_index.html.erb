@@ -1,41 +1,31 @@
+<h1>ここは管理者向け投稿待機一覧画面</h1>
+
 <div class="container">
   <% @post_for_admin.each do |post|%>
     <div class="row">
-      <%= post.image %>
+      <%= image_tag post.image %>
     </div>
     <div class="row">
-      <div class="col-lg-4">
-        <%= f.label :分類 %>
-      </div>
       <div class="col-lg-6">
         <%= post.classification %>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-lg-4">
-        <%= f.label :名前 %>
-      </div>
       <div class="col-lg-6">
         <%= post.name %>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-lg-4">
-          <%= f.label :詳細 %>
-      </div>
       <div class="col-lg-6">
       <%= post.detail %>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-lg-4">
-          <%= f.label :用途 %>
-      </div>
       <div class="col-lg-6">
-        <%= post.usage %>
+        <%= post.usega %>
       </div>
     </div>
   <% end %>
