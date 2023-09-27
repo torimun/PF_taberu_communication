@@ -1,46 +1,91 @@
 <div class="container">
-  <%= form_with model: @post_for_admin, url: customers_homes_create_path do |f| %>
-    <div class="row">
-      <%= f.file_field :image %>
+  <div class="row my-3 justify-content-center">
+    <div class="col-lg-6 text-center justify-content-center">
+      <h3>管理者へ向けての投稿画面</h3>
     </div>
-    <div class="row">
-      <div class="col-lg-4">
+  </div>
+  <div class="row my-2 justify-content-center">
+    <div class="col-lg-4 text-center justify-content-center">
+      <strong>管理者向け投稿とは？</strong>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-lg-10 text-center justify-content-center">
+      <p>管理者向け投稿とはホーム画面に表示されている、調味料・香辛料以外で</br>
+         会員の皆様が「こういった調味料があるよ。」、「珍しい香辛料だからか載っていなかった」時等に、</br>
+         管理者の方に向けて必要事項を記入した上で投稿し、管理者の方で情報の確認等を行った上で適切で</br>
+         あると判断した場合にホーム画面にて掲載を開始するという物です。
+         </p>
+    </div>
+  </div>
+  <div class="row my-2 justify-content-center">
+    <div class="col-lg-4 text-center justify-content-center">
+      <strong>なぜ、このような機能が実装されているのか？</strong>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-lg-10 text-center justify-content-center">
+      <p>実装理由としましては、管理者側のみで調味料・香辛料の一覧を作成するよりも、</br>
+         会員の皆様のお力添えを頂くことで、掲載の種類の充実を図れる点、新たな調味・香辛料</br>
+         が登場した際にいち早く掲載出来る点、他の会員の皆様もご覧になるため、</br>
+         新たに掲載された調味・香辛料を使用しての料理の創作など、料理に関しての発展が</br>
+         見込めると思い実装させて頂きました。</br>
+         以上の点から、是非とも会員の皆様には珍しい調味・香辛料等ありましたらご利用頂ければ幸いです。</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row my-3 text-center justify-content-center">
+    <h3>以下投稿記入欄</h3>
+  </div>
+  <%= form_with model: @post_for_admin, url: customers_homes_create_path do |f| %>
+    <div class="row my-2 justify-content-center">
+      <div class="col-lg-2">
+          <%= f.label :写真を選択して下さい %>
+      </div>
+      <div class="col-lg-6">
+        <%= f.file_field :image %>
+      </div>
+    </div>
+    <div class="row my-2 justify-content-center">
+      <div class="col-lg-2">
         <%= f.label :分類 %>
       </div>
       <div class="col-lg-6">
-        <%= f.text_field :classification %>
+        <%= f.text_field :classification, class: 'w-75' %>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-lg-4">
+    <div class="row my-2 justify-content-center">
+      <div class="col-lg-2">
         <%= f.label :名前 %>
       </div>
       <div class="col-lg-6">
-        <%= f.text_field :name %>
+        <%= f.text_field :name, class: 'w-75' %>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-lg-4">
+    <div class="row my-2 justify-content-center">
+      <div class="col-lg-2">
           <%= f.label :詳細 %>
       </div>
       <div class="col-lg-6">
-      <%= f.text_field :detail %>
+      <%= f.text_area :detail, size: '6x6', class: 'form-control' %>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-lg-4">
+    <div class="row my-2 justify-content-center">
+      <div class="col-lg-2">
           <%= f.label :用途 %>
       </div>
       <div class="col-lg-6">
-        <%= f.text_field :usega %>
+        <%= f.text_area :usega, size: '6x3', class: 'form-control' %>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-lg-6">
+    <div class="row my-5 justify-content-center">
+      <div class="col-lg-4 text-center">
         <%= f.submit :送信する, class: "btn btn-success" %>
       </div>
     </div>

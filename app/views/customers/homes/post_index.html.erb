@@ -1,9 +1,15 @@
-<h1>ここは管理者向け投稿待機一覧画面</h1>
+<div class="container">
+  <div class="row my-3">
+    <div class="col">
+      <h3>管理者向け投稿待機一覧画面</h3>
+    </div>
+  </div>
+</div>
 
 <div class="container">
   <% @post_for_admin.each do |post|%>
     <div class="row">
-      <%= image_tag post.image %>
+      <%= image_tag post.image, size: '150x150' %>
     </div>
     <div class="row">
       <div class="col-lg-6">
