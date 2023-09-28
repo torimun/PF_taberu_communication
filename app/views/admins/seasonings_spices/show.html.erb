@@ -49,7 +49,12 @@
       </div>
 
       <div class="row my-4 justify-content-center">
-          <%= link_to "編集する", edit_admins_seasonings_spice_path(@seasoning_spice.id), class: 'btn btn-success w-25' %>
+        <div class="col-lg-4 text-center">
+          <%= link_to "さらに追加する", new_admins_seasonings_spice_path, class: 'btn btn-primary w-75' %>
+        </div>
+        <div class="col-lg-4 text-center">
+          <%= link_to "編集する", edit_admins_seasonings_spice_path(@seasoning_spice.id), class: 'btn btn-success w-75' %>
+        </div>
       </div>
     </div>
   </div>

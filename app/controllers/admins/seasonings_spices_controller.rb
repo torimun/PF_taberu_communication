@@ -22,7 +22,12 @@ class Admins::SeasoningsSpicesController < ApplicationController
   end
 
   def update
-
+    @seasoning_spice = SeasoningSpice.find(params[:id])
+    if @seasoning_spice.update(seasoning_spice_params)
+      redirect_to admins_seasonings_spice_path(@seasoning_spice)
+    else
+      render :edit
+    end
   end
 
   private
