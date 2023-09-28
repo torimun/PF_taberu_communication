@@ -5,6 +5,6 @@ class Admin < ApplicationRecord
          :rememberable, :validatable
 
   has_many :post_for_admins, dependent: :destroy
-  has_many :seasonings_spices, dependent: :destroy
+  has_many :seasoning_spices, dependent: :destroy
 
 end

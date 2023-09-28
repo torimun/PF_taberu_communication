@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row m-3 justify-content-center">
+    <div class="col-lg-6 text-center border border-secondary">
+      <h3>調味・香辛料詳細画面</h3>
+    </div>
+  </div>
+</div>
+
+<div class="container mb-3 border border-secondary">
+  <div class="row p-4 border border-secondary justify-content-center">
+    <%= image_tag @seasoning_spice.image, size: '250x250' %>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="row border border-secondary">
+        <div class="col-lg-2 border-right border-secondary  text-center">
+          <p>分類</p>
+        </div>
+        <div class="col-lg-8">
+          <%= @seasoning_spice.classification %>
+        </div>
+      </div>
+
+      <div class="row border border-secondary">
+        <div class="col-lg-2 border-right border-secondary text-center">
+          <p>名前</p>
+        </div>
+        <div class="col-lg-8">
+          <%= @seasoning_spice.name %>
+        </div>
+      </div>
+
+      <div class="row border border-secondary">
+        <div class="col-lg-2 border-right border-secondary  text-center">
+          <p>詳細</p>
+        </div>
+        <div class="col-lg-8">
+        <%= @seasoning_spice.detail %>
+        </div>
+      </div>
+
+      <div class="row border border-secondary">
+        <div class="col-lg-2 border-right border-secondary text-center">
+          <p>用途</p>
+        </div>
+        <div class="col-lg-8">
+          <%= @seasoning_spice.usega %>
+        </div>
+      </div>
+
+      <div class="row my-4 justify-content-center">
+          <%= link_to "編集する", edit_admins_seasonings_spice_path(@seasoning_spice.id), class: 'btn btn-success w-25' %>
+      </div>
+    </div>
+  </div>
+</div>
