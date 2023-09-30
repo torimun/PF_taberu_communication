@@ -51,10 +51,13 @@
 
       <div class="row my-4 justify-content-center">
         <div class="col-lg-4 text-center">
-          <%= f.submit :送信する %>
+          <!--投稿承認時、会員からの投稿承認待ちのidを送信して削除出来るように。-->
+          <%= f.hidden_field :post_for_admin, value: @post_for_admin.id %>
+          <%= f.submit :承認する, class: 'btn btn-success w-75' %>
         </div>
         <div class="col-lg-4 text-center">
-          <%#= link_to "編集する", edit_admins_seasonings_spice_path(@seasoning_spice.id), class: 'btn btn-success w-75' %>
+          <%= link_to "承認しない", admins_post_path(@post_for_admin.id), method: :delete,
+            "data-confirm" => "承認拒否で宜しいですか？", class: 'btn btn-danger w-75' %>
         </div>
       </div>
     </div>

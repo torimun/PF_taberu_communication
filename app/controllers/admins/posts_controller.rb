@@ -12,10 +12,18 @@ class Admins::PostsController < ApplicationController
   def create
     @seasoning_spice = current_admin.seasoning_spices.build(seasoning_spice_params)
     if @seasoning_spice.save
-      redirect_to admins_posts_path
+      @post_for_admin = PostForAdmin.find_by(params[:id])
+      @post_for_admin.destroy
+      redirect_to admins_posts_path, notice: '投稿を承認しました。'
     else
       render :new
     end
+  end
+
+  def destroy
+    @post_for_admin = PostForAdmin.find(params[:id])
+    @post_for_admin.destroy
+    redirect_to admins_posts_path, notice: '投稿を承認拒否としました。'
   end
 
   private
