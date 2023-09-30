@@ -5,8 +5,7 @@ class Customers::PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.customer_id = current_customer.id
+    @post = current_customer.posts.build(post_params)
     if @post.save!
       # 投稿が保存された場合はタグも保存する
       @post.save_tags(params[:post][:tag])
@@ -20,6 +19,7 @@ class Customers::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
   end
 
   # def destroy
