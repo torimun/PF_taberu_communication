@@ -64,6 +64,7 @@ Rails.application.routes.draw do
     get "search" => "searches#search"
     #検索一覧画面のurl
     get 'searches/search'
+    #いいね一覧画面のurl
     get 'likes/like'
     get 'tag/index'
     get 'tag/show/:id', to: 'tag#show', as: 'tag_show'
@@ -77,7 +78,7 @@ Rails.application.routes.draw do
       #以下いいね機能関連
       resource :favorites, only: [:create, :destroy]
       #以下コメント機能
-      # resources :comments, only: [:create]
+      resources :comments, only: [:create]
     end
   end
 

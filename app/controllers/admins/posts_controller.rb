@@ -14,7 +14,8 @@ class Admins::PostsController < ApplicationController
     if @seasoning_spice.save
       @post_for_admin = PostForAdmin.find_by(params[:id])
       @post_for_admin.destroy
-      redirect_to admins_posts_path, notice: '投稿を承認しました。'
+      flash[:info] = "投稿が承認されました"
+      redirect_to admins_posts_path
     else
       render :new
     end
@@ -23,7 +24,8 @@ class Admins::PostsController < ApplicationController
   def destroy
     @post_for_admin = PostForAdmin.find(params[:id])
     @post_for_admin.destroy
-    redirect_to admins_posts_path, notice: '投稿を承認拒否としました。'
+    flash[:info] = "投稿が承認拒否とされました"
+    redirect_to admins_posts_path
   end
 
   private
