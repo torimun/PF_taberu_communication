@@ -1,6 +1,7 @@
 class Customers::CommentsController < ApplicationController
 
   def create
+    @post = Post.find(params[:post_id])
     @comment = current_customer.comments.new(comment_params)
     if @comment.save
       redirect_to customers_post_path(@post.id)
