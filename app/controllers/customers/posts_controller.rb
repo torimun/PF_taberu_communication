@@ -19,7 +19,8 @@ class Customers::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @comment = Comment.new
+    @comments = @post.comments
+    @comment = current_customer.comments.new
   end
 
   # def destroy

@@ -5,3 +5,41 @@
     </div>
   </div>
 </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="row">
+        <% @seasonings_spices.each do |seasoning|%>
+          <% if seasoning.classification == "調味料" %>
+            <%= link_to admins_seasonings_spice_path(seasoning.id) do %>
+              <%= seasoning.name %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="row">
+        <% @seasonings_spices.each do |spice|%>
+          <% if spice.classification == "香辛料" %>
+            <%= link_to admins_seasonings_spice_path(spice.id) do %>
+              <%= spice.name %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="row">
+        <% @seasonings_spices.each do |herb|%>
+          <% if herb.classification == "ハーブ類" %>
+            <%= link_to admins_seasonings_spice_path(herb.id) do %>
+              <%= herb.name %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
