@@ -67,7 +67,14 @@
           <%= f.label :分類 %>
         </div>
         <div class="col-lg-6">
-          <%= f.text_field :classification, class: 'w-75' %>
+          <%= f.radio_button :classification, "調味料" %>
+          <%= f.label :調味料 %>
+
+          <%= f.radio_button :classification, "香辛料" %>
+          <%= f.label :香辛料 %>
+
+          <%= f.radio_button :classification, "ハーブ類" %>
+          <%= f.label :ハーブ類 %>
         </div>
       </div>
 

@@ -47,21 +47,57 @@
   </div>
   <% end %>
 
-  <div class="row">
+<div class="row">
     <div class="col-lg-2 p-1 border border-secondary">
       <div>・コメント</div>
     </div>
-    <div class="col-lg-8 p-1 border border-secondary">
+    <div class="col-lg-10 p-1 border border-secondary">
       <%= @post.comment %>
     </div>
   </div>
+</div>
 
+<div class="container my-4 py-4 border border-secondary">
   <div class="row">
-    <div class="col">
-      <%# @post.comments.each do |comment| %>
-        <%#= comment %>
-      <%# end %>
+    <div class="col-lg-6">
+      <p>コメント総数：<%= @comments.count %>件</p>
     </div>
   </div>
+  <div class="row mx-4 justify-content-center border border-secondary">
+    <div class="col-lg-8">
+      <div class="row my-2 justify-content-center">
+        <p>以下コメント欄</p>
+      </div>
 
+      <% if @comments.count == 0 %>
+        <div class="row justify-content-center">
+          <p>投稿されたコメントは現在ありません</p>
+        </div>
+      <% else %>
+        <div class="row">
+          <div class="col m-2 py-2 border border-info">
+            <% @comments.each do |post_comment| %>
+            <div class="row">
+              <div class="col-lg-2">
+                <%= post_comment.customer.user_name %>
+              </div>
+              <div class="col-lg-2">
+                <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2">
+                <p>コメント</p>
+              </div>
+              <div class="col-lg-9">
+                <%= post_comment.comment %>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
 </div>

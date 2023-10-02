@@ -1,7 +1,7 @@
 class Customers::HomesController < ApplicationController
 
   def top
-
+    @seasonings_spices = SeasoningSpice.all
   end
 
   def welcome

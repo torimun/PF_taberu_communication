@@ -11,6 +11,7 @@ class Admins::CustomersController < ApplicationController
 
   def post_show
     @post = Post.find(params[:id])
+    @comments = @post.comments
   end
 
   def edit

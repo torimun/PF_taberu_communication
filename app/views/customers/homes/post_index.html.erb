@@ -3,62 +3,70 @@
     <div class="col">
       <h3>管理者向け投稿承認待機一覧画面</h3>
     </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <%= flash[:info] %>
+      </div>
+    </div>
   </div>
 </div>
 
-  <div class="row">
-    <div class="col-lg-4">
-      <%= flash[:info] %>
+<% if @post_for_admin.count == 0 %>
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <strong>現時点では承認待ちの投稿はありません</br>
+              宜しければ、管理者向け投稿画面よりご投稿ください。</strong>
     </div>
   </div>
+<% else %>
+  <div class="container border border-secondary">
+    <% @post_for_admin.each do |post|%>
+      <div class="row m-2 p-2 border border-success">
+        <div class="col-lg-3">
+          <div class="row my-2">
+            <div class="col-lg-6 justify-content-center">
+              <%= image_tag post.image, size: '150x150' %>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-9">
+          <div class="row border border-secondary">
+            <div class="col-lg-2 border-right border-secondary  text-center">
+              <p>分類</p>
+            </div>
+            <div class="col-lg-8">
+              <%= post.classification %>
+            </div>
+          </div>
 
-<div class="container border border-secondary">
-  <% @post_for_admin.each do |post|%>
-    <div class="row m-2 p-2 border border-success">
-      <div class="col-lg-3">
-        <div class="row my-2">
-          <div class="col-lg-6 justify-content-center">
-            <%= image_tag post.image, size: '150x150' %>
+          <div class="row border border-secondary">
+            <div class="col-lg-2 border-right border-secondary text-center">
+              <p>名前</p>
+            </div>
+            <div class="col-lg-8">
+              <%= post.name %>
+            </div>
+          </div>
+
+          <div class="row border border-secondary">
+            <div class="col-lg-2 border-right border-secondary  text-center">
+              <p>詳細</p>
+            </div>
+            <div class="col-lg-8">
+            <%= post.detail %>
+            </div>
+          </div>
+
+          <div class="row border border-secondary">
+            <div class="col-lg-2 border-right border-secondary text-center">
+              <p>用途</p>
+            </div>
+            <div class="col-lg-8">
+              <%= post.usega %>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-9">
-        <div class="row border border-secondary">
-          <div class="col-lg-2 border-right border-secondary  text-center">
-            <p>分類</p>
-          </div>
-          <div class="col-lg-8">
-            <%= post.classification %>
-          </div>
-        </div>
-
-        <div class="row border border-secondary">
-          <div class="col-lg-2 border-right border-secondary text-center">
-            <p>名前</p>
-          </div>
-          <div class="col-lg-8">
-            <%= post.name %>
-          </div>
-        </div>
-
-        <div class="row border border-secondary">
-          <div class="col-lg-2 border-right border-secondary  text-center">
-            <p>詳細</p>
-          </div>
-          <div class="col-lg-8">
-          <%= post.detail %>
-          </div>
-        </div>
-
-        <div class="row border border-secondary">
-          <div class="col-lg-2 border-right border-secondary text-center">
-            <p>用途</p>
-          </div>
-          <div class="col-lg-8">
-            <%= post.usega %>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% end %>

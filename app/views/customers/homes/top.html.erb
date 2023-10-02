@@ -1,2 +1,98 @@
 <p><%= notice %></p>
-<h2>ここはトップページ</h2>
+<div class="container my-3 border border-secondary">
+  <div class="row my-3">
+    <div class="col-lg-4">
+      <h3>調味料・香辛料等一覧画面</h3>
+    </div>
+    <div class="col-lg-5">
+      <p>※クリックすることで詳細画面にリンクします</p>
+    </div>
+  </div>
+</div>
+
+<div class="container py-2">
+  <div class="row">
+
+    <div class="col-lg-4 px-2 border border-secondary">
+      <div class="row m-2">
+        <h5>調味料一覧</h5>
+      </div>
+      <% @seasonings_spices.each do |seasoning|%>
+        <% if seasoning.classification == "調味料" %>
+          <%= link_to admins_seasonings_spice_path(seasoning.id) do %>
+            <div class="row m-1 border border-primary">
+              <div class="col-lg-3 my-1">
+                <%= image_tag seasoning.image, size: '80x80' %>
+              </div>
+              <div class="col-lg-9 my-1">
+                <div class="row text-center">
+                  <div class="col-lg-5">
+                    <p>調味料名:</p>
+                  </div>
+                  <div class="col-lg-7">
+                    <%= seasoning.name %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="col-lg-4 px-2 border border-secondary">
+      <div class="row m-2">
+        <h5>香辛料一覧</h5>
+      </div>
+      <% @seasonings_spices.each do |spice|%>
+        <% if spice.classification == "香辛料" %>
+          <%= link_to admins_seasonings_spice_path(spice.id) do %>
+            <div class="row m-1 border border-success">
+              <div class="col-lg-3 my-1">
+                <%= image_tag spice.image, size: '80x80' %>
+              </div>
+              <div class="col-lg-9 my-1">
+                <div class="row text-center">
+                  <div class="col-lg-5">
+                    <p>香辛料名:</p>
+                  </div>
+                  <div class="col-lg-7">
+                    <%= spice.name %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="col-lg-4 px-2 border border-secondary">
+      <div class="row m-2">
+        <h5>ハーブ類一覧</h5>
+      </div>
+      <% @seasonings_spices.each do |herb|%>
+        <% if herb.classification == "ハーブ類" %>
+          <%= link_to admins_seasonings_spice_path(herb.id) do %>
+            <div class="row m-1 border border-warning">
+              <div class="col-lg-3 my-1">
+                <%= image_tag herb.image, size: '80x80' %>
+              </div>
+              <div class="col-lg-9 my-1">
+                <div class="row text-center">
+                  <div class="col-lg-5">
+                    <p>ハーブ名:</p>
+                  </div>
+                  <div class="col-lg-7">
+                    <%= herb.name %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
+</div>
