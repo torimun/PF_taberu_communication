@@ -24,11 +24,24 @@ class Admins::CustomersController < ApplicationController
     redirect_to admins_customers_show_path(@customer.id)
   end
 
+  def comment_destroy
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+    if @comment.destroy
+      redirect_to admins_customers_post_show_path(@post.id)
+    else
+      render:post_show
+    end
+  end
 
   private
 
   def customers_params
     params.require(:customer).permit(:user_name, :introduction, :is_deleted)
+  end
+
+  def comment_params
+    params.require(:comment).permit(:customer_id, :post_id, :comment)
   end
 
 end

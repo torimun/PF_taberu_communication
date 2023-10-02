@@ -63,7 +63,7 @@
       <p>コメント総数：<%= @comments.count %>件</p>
     </div>
   </div>
-  <div class="row mx-4 justify-content-center border border-secondary">
+  <div class="row mx-2 justify-content-center border border-secondary">
     <div class="col-lg-8">
       <div class="row my-2 justify-content-center">
         <p>以下コメント欄</p>
@@ -76,24 +76,35 @@
       <% else %>
         <div class="row">
           <div class="col m-2 py-2 border border-info">
+
             <% @comments.each do |post_comment| %>
-            <div class="row">
-              <div class="col-lg-2">
-                <%= post_comment.customer.user_name %>
+              <div class="row">
+                <div class="col-lg-9">
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <%= post_comment.customer.user_name %>
+                    </div>
+                    <div class="col-lg-4">
+                      <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <p>コメント</p>
+                    </div>
+                    <div class="col-lg-9">
+                      <%= post_comment.comment %>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3">
+                  <%= link_to "削除する", admins_customers_comment_destroy_path(@post, post_comment), method: :delete,
+                  "data-confirm" => "本当に削除しますか？",class: 'btn btn-danger'%>
+                </div>
               </div>
-              <div class="col-lg-2">
-                <%= post_comment.created_at.strftime('%Y/%m/%d') %>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-2">
-                <p>コメント</p>
-              </div>
-              <div class="col-lg-9">
-                <%= post_comment.comment %>
-              </div>
-            </div>
             <% end %>
+
+          </div>
           </div>
         </div>
       <% end %>

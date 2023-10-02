@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     get 'customers/post_show/:id', to: 'customers#post_show', as: 'customers_post_show'
     get 'customers/edit/:id', to: 'customers#edit', as: 'customers_edit'
     patch 'customers/:id', to: 'customers#update', as: 'customers_update'
+    delete 'customers/posts/:post_id/comments/:id', to: 'customers#comment_destroy', as: 'customers_comment_destroy'
   end
 
   #以下顧客用
