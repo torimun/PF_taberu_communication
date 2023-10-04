@@ -56,9 +56,14 @@
     <% if @customer.id == current_customer.id %>
     <div class="col-lg-3 justify-content-center">
       <div class="row mt-3 p-1 justify-content-center">
+        <% if @customer.email == 'guest@example.com' %>
+          <p>ゲストアカウントの為</br>
+              編集出来ません。</p>
+        <% else %>
         <div class="col-lg-8">
           <%= link_to "編集する", customers_members_information_edit_path, class: "btn btn-success" %>
         </div>
+        <% end %>
       </div>
       <div class="row my-3 p-1 justify-content-center">
         <div class="col-lg-8">
@@ -74,6 +79,12 @@
   <div class="row">
     <div class="col-lg-4">
       <h3>投稿一覧</h3>
+    </div>
+    <div class="row">
+      <% if @posts.count == 0 %>
+        <h4>現時点では、投稿はありません。</br>
+            上記のリンクから投稿してみましょう！</h4>
+      <% end %>
     </div>
   </div>
 </div>

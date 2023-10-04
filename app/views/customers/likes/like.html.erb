@@ -2,6 +2,14 @@
   <div class="row">
     <h3><%= @himself %>　さんのいいね一覧ページ</h3>
   </div>
+  <div class="row my-3 justify-content-center">
+    <div class="col-lg-8 text-center justify-content-center">
+      <% if @posts.count == 0 %>
+        <h4>現時点では、いいねした投稿はありませんでした。</br>
+            他の方の投稿にいいね！をしてみましょう！</h4>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <% @posts.each do |post|%>

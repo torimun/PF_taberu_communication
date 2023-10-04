@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root to: 'welcomes#top'
+
 # 顧客用
 # URL /customers/sign_in ...
   devise_for :customers, controllers: {
@@ -40,11 +42,10 @@ Rails.application.routes.draw do
   #homesコントローラー関連
   namespace :customers do
     get 'homes/top'
-    get 'homes/welcome', to: 'homes#welcome'
     get 'homes/new'
     post 'homes/create', to: 'homes#create'
     get 'homes/post_index'
-    get 'homes/id', to: 'homes#show'
+    get 'homes/:id', to: 'homes#show', as: 'homes_show'
   end
 
   #membersコントローラー関連

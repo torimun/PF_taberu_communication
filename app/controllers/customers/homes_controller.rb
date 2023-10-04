@@ -4,10 +4,6 @@ class Customers::HomesController < ApplicationController
     @seasonings_spices = SeasoningSpice.all
   end
 
-  def welcome
-
-  end
-
   def new
     @post_for_admin = PostForAdmin.new
   end
@@ -27,7 +23,7 @@ class Customers::HomesController < ApplicationController
   end
 
   def show
-
+    @seasoning_spice = SeasoningSpice.find(params[:id])
   end
 
   private

@@ -21,10 +21,10 @@ class Customers::SessionsController < Devise::SessionsController
   # end
 
   def guest_sign_in
-    customer = Customer.guest
-    sign_in customer
+    @customer = Customer.guest
+    sign_in @customer
     redirect_to customers_homes_top_path,
-    notice: 'ゲストユーザーとしてログインしました。ゲストユーザーでは編集機能以外利用可能です。'
+    notice: 'ゲストユーザーとしてログインしました。'
   end
 
   def after_sign_in_path_for(resource)
@@ -32,7 +32,7 @@ class Customers::SessionsController < Devise::SessionsController
   end
 
   def after_sign_out_path_for(resource)
-    customers_homes_welcome_path
+    root_path
   end
 
 
