@@ -23,12 +23,6 @@ class Customers::PostsController < ApplicationController
     @comment = current_customer.comments.new
   end
 
-  # def destroy
-  #   @post = Post.find(params[:id])
-  #   @post.destroy(params[:id])
-  #   redirect_to customers_posts_path
-  # end
-
   private
 
   def post_params
