@@ -10,9 +10,14 @@ class Admins::PostsController < ApplicationController
   end
 
   def create
+    @post_for_admin = PostForAdmin.find_by(params[:id])
     @seasoning_spice = current_admin.seasoning_spices.build(seasoning_spice_params)
+    
+    image_file = ActiveStorage::Blob.service.send(:path_for, @post_for_admin.image.key)
+    downloaded_image = open(image_file)
+    @seasoning_spice.image.attach(io: downloaded_image, filename: @post_for_admin.image.filename)
+    
     if @seasoning_spice.save
-      @post_for_admin = PostForAdmin.find_by(params[:id])
       @post_for_admin.destroy
       flash[:info] = "投稿が承認されました"
       redirect_to admins_posts_path

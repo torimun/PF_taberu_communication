@@ -24,7 +24,13 @@
           <%= link_to admins_seasonings_spice_path(seasoning.id) do %>
             <div class="row m-1 border border-primary">
               <div class="col-lg-3 my-1">
-                <%= image_tag seasoning.image, size: '80x80' %>
+                <%= print "==============================" %>
+                <%= print seasoning.image %>
+                <% if seasoning.image.attached? %>
+                  <%= image_tag seasoning.image, size: '80x80' %>
+                <% else %>
+                  <p>画像なし</p>
+                <% end %>
               </div>
               <div class="col-lg-9 my-1">
                 <div class="row text-center">
