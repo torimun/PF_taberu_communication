@@ -1,10 +1,10 @@
 <div class="container my-3 border border-secondary">
   <div class="row my-3">
-    <div class="col-lg-4">
-      <h3>調味料・香辛料等一覧画面</h3>
+    <div class="col-lg-2">
+      <h3>ホーム画面</h3>
     </div>
     <div class="col-lg-5">
-      <p>※クリックすることで詳細画面にリンクします</p>
+      <p>※枠内をクリックすることで詳細画面にリンクします</p>
     </div>
   </div>
 </div>
@@ -21,8 +21,6 @@
           <%= link_to customers_homes_show_path(seasoning.id) do %>
             <div class="row m-1 border border-primary">
               <div class="col-lg-3 my-1">
-                <%= print "==============================" %>
-                <%= print seasoning.image %>
                 <% if seasoning.image.attached? %>
                   <%= image_tag seasoning.image, size: '80x80' %>
                 <% else %>

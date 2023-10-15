@@ -37,7 +37,7 @@ class Admins::CustomersController < ApplicationController
   private
 
   def customers_params
-    params.require(:customer).permit(:user_name, :introduction, :is_deleted)
+    params.require(:customer).permit(:user_name, :email, :introduction, :is_deleted)
   end
 
   def comment_params

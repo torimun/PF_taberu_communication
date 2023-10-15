@@ -6,7 +6,7 @@ class Customers::PostsController < ApplicationController
 
   def create
     @post = current_customer.posts.build(post_params)
-    if @post.save!
+    if @post.save
       # 投稿が保存された場合はタグも保存する
       @post.save_tags(params[:post][:tag])
       #保存成功で投稿詳細へ

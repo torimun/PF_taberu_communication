@@ -13,7 +13,7 @@ class Customers::MembersController < ApplicationController
   def update
     if @customer = current_customer
       @customer.update(customers_params)
-      redirect_to customers_homes_top_path
+      redirect_to customers_path(@customer)
     else
       render :show
     end

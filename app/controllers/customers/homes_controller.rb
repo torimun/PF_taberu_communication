@@ -10,7 +10,7 @@ class Customers::HomesController < ApplicationController
 
   def create
     @post_for_admin = current_customer.post_for_admins.build(post_for_admin_params)
-    if @post_for_admin.save!
+    if @post_for_admin.save
       redirect_to customers_homes_post_index_path
     else
       render :new

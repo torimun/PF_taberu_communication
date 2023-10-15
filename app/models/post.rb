@@ -7,6 +7,8 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
   belongs_to :customer
 
+  validates :comment, presence: true
+
   #会員が投稿に対して「いいね」しているかを確認するメソッド
   def favorited_by?(customer)
     favorites.exists?(customer_id: customer.id)

@@ -25,7 +25,12 @@
         <div class="col-lg-3">
           <div class="row my-2">
             <div class="col-lg-6 justify-content-center">
-              <%= image_tag post.image, size: '150x150' %>
+              <% if post.image.attached? %>
+                <%= image_tag post.image, size: '150x150' %>
+              <% else %>
+                <p>表示できる</br>
+                画像はありません</p>
+              <% end %>
             </div>
           </div>
         </div>
