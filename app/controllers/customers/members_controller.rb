@@ -27,7 +27,7 @@ class Customers::MembersController < ApplicationController
     @customer = current_customer
     @customer.update(is_deleted: true)
     reset_session
-    redirect_to customers_homes_welcome_path
+    redirect_to root_path
   end
 
   private

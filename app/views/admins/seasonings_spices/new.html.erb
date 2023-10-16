@@ -2,10 +2,20 @@
     <div class="row my-3 text-center justify-content-center">
       <h3>投稿記入欄</h3>
     </div>
+    <div class="row my-3 justify-content-center">
+      <div class="col-lg-10 text-center">
+        <% if @seasoning_spice.errors.any? %>
+          <%= @seasoning_spice.errors.count %>件のエラーが発生しました
+            <% @seasoning_spice.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+        <% end %>
+      </div>
+    </div>
     <%= form_with model: @seasoning_spice, url: admins_seasonings_spices_path do |f| %>
       <div class="row my- justify-content-center">
         <div class="col-lg-3">
-            <%= f.label :写真を選択して下さい %>
+            <%= f.label :写真を選択して下さい（image） %>
         </div>
         <div class="col-lg-6">
           <%= f.file_field :image %>
@@ -13,7 +23,7 @@
       </div>
       <div class="row my-2 justify-content-center">
         <div class="col-lg-3">
-          <%= f.label :分類 %>
+          <%= f.label :分類（classification） %>
         </div>
         <div class="col-lg-6">
           <%= f.radio_button :classification, "調味料" %>
@@ -29,7 +39,7 @@
 
       <div class="row my-2 justify-content-center">
         <div class="col-lg-3">
-          <%= f.label :名前 %>
+          <%= f.label :名前（name） %>
         </div>
         <div class="col-lg-6">
           <%= f.text_field :name, class: 'w-75' %>
@@ -38,7 +48,7 @@
 
       <div class="row my-2 justify-content-center">
         <div class="col-lg-3">
-            <%= f.label :詳細 %>
+            <%= f.label :詳細（detail） %>
         </div>
         <div class="col-lg-6">
         <%= f.text_area :detail, size: '6x6', class: 'form-control' %>
@@ -47,7 +57,7 @@
 
       <div class="row my-2 justify-content-center">
         <div class="col-lg-3">
-            <%= f.label :用途 %>
+            <%= f.label :用途（usega） %>
         </div>
         <div class="col-lg-6">
           <%= f.text_area :usega, size: '6x3', class: 'form-control' %>

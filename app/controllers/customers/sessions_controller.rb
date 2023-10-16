@@ -45,7 +45,8 @@ class Customers::SessionsController < Devise::SessionsController
     return if !@customer
     # 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかつ、is_deletedの値がtrueであるか
     if @customer.valid_password?(params[:customer][:password]) && (@customer.is_deleted == true)
-        redirect_to customers_homes_welcome_path
+        flash[:alert] = "※申し訳ありません。本アカウントはご退会済みの為、別のアカウントをお試しください"
+        redirect_to root_path
     end
   end
 

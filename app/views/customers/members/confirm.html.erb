@@ -6,8 +6,7 @@
 
     <div class="row my-2 justify-content-center">
       <p class="text-center">
-        退会すると、会員登録情報や<br>
-        これまでの投稿が閲覧できなくなります。<br>
+        退会すると、再度ログインが出来なくなります<br>
         退会する場合は、「退会する」をクリックしてください。
       </p>
     </div>
@@ -17,7 +16,7 @@
         <%= link_to "退会しない", customers_path(@customer), class: "btn btn-primary" %>
       </div>
       <div class="col-lg-2 justify-content-center">
-        <%= link_to "退会する", customers_members_withdraw_path, method: :patch, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
+        <%= link_to "退会する", customers_members_withdraw_path, method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger" %>
       </div>
     </div>
   </div>

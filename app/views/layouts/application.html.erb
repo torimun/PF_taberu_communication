@@ -55,8 +55,8 @@
                     </div>
                   </div>
                   <div class="row m-1">
-                    <div class="col-lg-6">
-                      <%= f.select :range, options_for_select([['Post'],['Customer']]) %>
+                    <div class="col-lg-4">
+                      <%= f.select :range, options_for_select([["投稿",'Post'],["会員",'Customer']]) %>
                     </div>
                     <div class="col-lg-6">
                       <%= f.select :search, options_for_select([["部分一致","partial_match"], ["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"]]) %>
@@ -77,7 +77,7 @@
                   <%= link_to "投稿承認一覧", admins_posts_path, class:"m-2 text-light" %>
                 </li>
                 <li>
-                <%= link_to "調味料・香辛料一覧", admins_homes_top_path, class: "m-2 text-light" %>
+                <%= link_to "ホーム画面", admins_homes_top_path, class: "m-2 text-light" %>
                 </li>
                 <li>
                   <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "m-2 text-light" %>

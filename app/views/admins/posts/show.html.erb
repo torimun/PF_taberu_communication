@@ -4,27 +4,35 @@
       <h3>投稿承認詳細画面</h3>
     </div>
   </div>
+  <div class="row m-3 justify-content-center">
+    <div class="col-lg-4 text-center border border-secondary">
+     <% if @seasoning_spice.errors.any? %>
+        <%= @seasoning_spice.errors.count %>件のエラーが発生しました
+          <% @seasoning_spice.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <%= form_with model: @seasoning_spice, url: admins_posts_path do |f| %>
 <div class="container mb-3 border border-secondary">
-  <div class="row p-4 border border-secondary justify-content-center">
-    <%= image_tag @post_for_admin.image, size: '300x300' %>
-  </div>
   <div class="row">
     <div class="col-lg-12">
       <div class="row border border-secondary">
         <div class="col-lg-2 p-2 border-right border-secondary text-center">
-          <p>分類</p>
+          <p>分類(classification)</p>
         </div>
         <div class="col-lg-8 p-2">
-          <%= f.text_field :classification, value: @post_for_admin.classification %>
+          <%= @post_for_admin.classification %>
+          <%= f.hidden_field :classification, value: @post_for_admin.classification %>
         </div>
       </div>
 
       <div class="row border border-secondary">
         <div class="col-lg-2 p-2 border-right border-secondary text-center">
-          <p>名前</p>
+          <p>名前(name)</p>
         </div>
         <div class="col-lg-8 p-2">
           <%= f.text_field :name, value: @post_for_admin.name %>
@@ -33,7 +41,7 @@
 
       <div class="row border border-secondary">
         <div class="col-lg-2 p-2 border-right border-secondary  text-center">
-          <p>詳細</p>
+          <p>詳細(detail)</p>
         </div>
         <div class="col-lg-8 p-2">
         <%= f.text_area :detail, size: '6x6', class: 'form-control', value: @post_for_admin.detail %>
@@ -42,7 +50,7 @@
 
       <div class="row border border-secondary">
         <div class="col-lg-2 p-2 border-right border-secondary text-center">
-          <p>用途</p>
+          <p>用途(usega)</p>
         </div>
         <div class="col-lg-8 p-2">
           <%= f.text_area :usega, size: '6x3', class: 'form-control', value: @post_for_admin.usega %>

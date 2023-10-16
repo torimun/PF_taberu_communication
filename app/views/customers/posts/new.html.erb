@@ -2,6 +2,16 @@
   <div class="row my-2">
     <h3>投稿画面</h3>
   </div>
+  <div class="row my-3 justify-content-center">
+      <div class="col-lg-10 text-center">
+        <% if @post.errors.any? %>
+          <%= @post.errors.count %>件のエラーが発生しました
+            <% @post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+        <% end %>
+      </div>
+    </div>
 
   <%= form_with model: @post, url: customers_posts_path do |f|%>
   <div class="row justify-content-center">
@@ -54,7 +64,7 @@
 
       <div class="row my-2 justify-content-center">
         <div class="col">
-          <%= f.label :投稿コメント %>
+          <%= f.label :投稿コメント（comment） %>
         </div>
       </div>
 
