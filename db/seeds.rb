@@ -6,9 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-#以下管理者用アカウント
+#以下テスト用管理者アカウント
+# admin= Admin.find_or_create_by!(email: "admin@admin") do |admin|
+#   admin.password = ENV['AWS_PF_ACCESS_ADMIN_KEY']
+# end
+
 admin= Admin.find_or_create_by!(email: "admin@admin") do |admin|
-  admin.password = ENV['AWS_PF_ACCESS_ADMIN_KEY']
+  admin.password = "admins"
 end
 
 #以下テスト用アカウント
