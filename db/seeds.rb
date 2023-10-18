@@ -7,15 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #以下管理者用アカウント
-Admin.create!(
-  email: 'admin@admin',
-  password: 'admins'
-)
+admin= Admin.find_or_create_by!(email: "admin@admin") do |admin|
+  admin.password = ENV['AWS_PF_ACCESS_ADMIN_KEY']
+end
 
 #以下テスト用アカウント
-Customer.create!(
-  user_name: 'customers1',
-  email: 'customer1@customer1',
-  introduction: 'これはテストアカウント',
-  password: 'customers'
-  )
+customers1 = Customer.find_or_create_by!(email: "customer1@customer1") do |customer|
+  customer.user_name = "customers1",
+  customer.password = "customers1",
+  customer.introduction = "これはテストアカウント"
+end
