@@ -9,6 +9,11 @@ class Admins::PostsController < ApplicationController
     @seasoning_spice = SeasoningSpice.new
   end
 
+  #以下の部分で、会員からの管理者向け投稿の「承認」or「拒否」を行っている
+
+  #21~23のコードで、承認されたものに関しては一度投稿されたものから画像をコピーして、
+  #新しく投稿するものに、attachしている。
+
   def create
     @post_for_admin = PostForAdmin.find_by(params[:id])
     @seasoning_spice = current_admin.seasoning_spices.build(seasoning_spice_params)
