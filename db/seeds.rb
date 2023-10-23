@@ -114,7 +114,7 @@ end
 #香辛料初期データ
 SeasoningSpice.find_or_create_by!(name: '唐辛子') do |spices|
   spices.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
-  spices.image.attach(io: File.open(Rails.root.join('app/assets/images/27590241_m.jpg)'),filename: '27590241_m.jpg')
+  spices.image.attach(io: File.open(Rails.root.join('app/assets/images/27590241_m.jpg')),filename: '27590241_m.jpg')
   spices.classification = '香辛料'
   spices.name = '唐辛子'
   spices.detail = '主に辛さを付与するために用いられる。また、辛さのもとになっているのはカプサイシンと呼ばれる成分が原因になっている'
