@@ -54,6 +54,7 @@ Customer.find_or_create_by!(email: "customer7@customer7.com") do |customer_detai
   customer_detail.introduction = '鶏肉を使った料理が好きなので、鶏肉関連の料理が気になっています。'
 end
 
+
 #調味料初期データ
 SeasoningSpice.find_or_create_by!(name: '醤油') do |seasoning|
   seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
@@ -111,108 +112,112 @@ end
 
 
 #香辛料初期データ
-# SeasoningSpice.find_or_create_by!(name: '') do |spices|
-#   spices.image = ''
-#   spices.classification = '香辛料'
-#   spices.name = ''
-#   spices.detail = ''
-#   spices.usega = ''
-# end
+SeasoningSpice.find_or_create_by!(name: '唐辛子') do |spices|
+  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  spices.image.attach(io: File.open(Rails.root.join('app/assets/images/27590241_m.jpg)'),filename: '27590241_m.jpg')
+  spices.classification = '香辛料'
+  spices.name = '唐辛子'
+  spices.detail = '主に辛さを付与するために用いられる。また、辛さのもとになっているのはカプサイシンと呼ばれる成分が原因になっている'
+  spices.usega = '使用用途の一部としてパスタや、麻婆豆腐等に、使用されている'
+end
 
-# SeasoningSpice.find_or_create_by!(name: '') do |spices|
-#   spices.image = ''
-#   spices.classification = '香辛料'
-#   spices.name = ''
-#   spices.detail = ''
-#   spices.usega = ''
-# end
+SeasoningSpice.find_or_create_by!(name: '胡椒') do |spices|
+  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  spices.image.attach(io: File.open(Rails.root.join('app/assets/images/27661097_m.jpg')),filename: '27661097_m.jpg')
+  spices.classification = '香辛料'
+  spices.name = '胡椒'
+  spices.detail = 'こしょうの実という物があり、それを乾燥させたものが黒コショウとして使用されている'
+  spices.usega = '使用用途として、肉料理全般や、パスタ等、ピリッとさせたい時や、香り付けに使用された理数'
+end
 
-# SeasoningSpice.find_or_create_by!(name: '') do |spices|
-#   spices.image = ''
-#   spices.classification = '香辛料'
-#   spices.name = ''
-#   spices.detail = ''
-#   spices.usega = ''
-# end
+SeasoningSpice.find_or_create_by!(name: 'マスタード') do |spices|
+  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  spices.image.attach(io: File.open(Rails.root.join('app/assets/images/2430003_m.jpg')),filename: '2430003_m.jpg')
+  spices.classification = '香辛料'
+  spices.name = 'イエローマスタード'
+  spices.detail = '主な原材料として、マスタシード、酢、塩が使用されていて、他の種類のマスタードより辛さは抑え目になっている'
+  spices.usega = '主な使用用途としては、ハンバーガーや、フライドチキン、ホットドッグ等、洋風な料理に使われていることが多い'
+end
 
-# SeasoningSpice.find_or_create_by!(name: '') do |spices|
-#   spices.image = ''
-#   spices.classification = '香辛料'
-#   spices.name = ''
-#   spices.detail = ''
-#   spices.usega = ''
-# end
+SeasoningSpice.find_or_create_by!(name: 'ナツメグ') do |spices|
+  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  spices.image.attach(io: File.open(Rails.root.join('app/assets/images/23577925_m.jpg')),filename: '23577925_m.jpg')
+  spices.classification = '香辛料'
+  spices.name = 'ナツメグ'
+  spices.detail = 'ナツメグは、ニクズクと呼ばれる果実から取れる香辛料で、ほんのり甘さがあるのが特徴。しかし多量に摂取すると中毒症状が起きることがある為注意が必要'
+  spices.usega = '主な使用用途としては、ハンバーグやカレー等があるが、肉の臭み消しに使用できるので、使用用途は例に挙げたものだけとは限らない'
+end
 
-# SeasoningSpice.find_or_create_by!(name: '') do |spices|
-#   spices.image = ''
-#   spices.classification = '香辛料'
-#   spices.name = ''
-#   spices.detail = ''
-#   spices.usega = ''
-# end
+SeasoningSpice.find_or_create_by!(name: '山椒') do |spices|
+  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  spices.image.attach(io: File.open(Rails.root.join('app/assets/images/26956929_m.jpg')),filename: '26956929_m.jpg')
+  spices.classification = '香辛料'
+  spices.name = '山椒'
+  spices.detail = '独特な香りが特徴で、別の呼び方として「ジャパニーズペッパー」とも呼ばれている'
+  spices.usega = '主にうなぎにかけて使用されるが、あえて山椒の特徴を生かした他の料理で使用されることもある'
+end
 
-# SeasoningSpice.find_or_create_by!(name: '') do |spices|
-#   spices.image = ''
-#   spices.classification = '香辛料'
-#   spices.name = ''
-#   spices.detail = ''
-#   spices.usega = ''
-# end
+SeasoningSpice.find_or_create_by!(name: 'シナモン') do |spices|
+  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  spices.image.attach(io: File.open(Rails.root.join('app/assets/images/2906259_m.jpg')),filename: '2906259_m.jpg')
+  spices.classification = '香辛料'
+  spices.name = 'シナモン'
+  spices.detail = 'シナモンは、クスノキ科の樹皮を乾燥させたスパイスで、それを粉末にすると、シナモンパウダーになる'
+  spices.usega = '主に、お菓子の材料や、飲み物の材料等にも使用される'
+end
 
 
 # #ハーブ類初期データ
-# SeasoningSpice.find_or_create_by!(name: '') do |herbs|
-#   herbs.image = ''
+# SeasoningSpice.find_or_create_by!(name: 'バジル') do |herbs|
+#   seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+#   herbs.image.attach(io: File.open(Rails.root.join('app/assets/images/27846805_m.jpg')),filename: '27846805_m.jpg')
 #   herbs.classification = 'ハーブ類'
-#   herbs.name = ''
+#   herbs.name = 'バジル'
 #   herbs.detail = ''
 #   herbs.usega = ''
 # end
 
-# SeasoningSpice.find_or_create_by!(name: '') do |herbs|
-#   herbs.image = ''
+# SeasoningSpice.find_or_create_by!(name: 'ミント') do |herbs|
+#   seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+#   herbs.image.attach(io: File.open(Rails.root.join('app/assets/images/27223441_m.jpg')),filename: '27223441_m.jpg')
 #   herbs.classification = 'ハーブ類'
-#   herbs.name = ''
+#   herbs.name = 'ミント'
 #   herbs.detail = ''
 #   herbs.usega = ''
 # end
 
-# SeasoningSpice.find_or_create_by!(name: '') do |herbs|
-#   herbs.image = ''
+# SeasoningSpice.find_or_create_by!(name: 'パセリ') do |herbs|
+#   seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+#   herbs.image.attach(io: File.open(Rails.root.join('app/assets/images/26267849_m.jpg')),filename: '26267849_m.jpg')
 #   herbs.classification = 'ハーブ類'
-#   herbs.name = ''
+#   herbs.name = 'パセリ'
 #   herbs.detail = ''
 #   herbs.usega = ''
 # end
 
-# SeasoningSpice.find_or_create_by!(name: '') do |herbs|
-#   herbs.image = ''
+# SeasoningSpice.find_or_create_by!(name: 'ローズマリー') do |herbs|
+#   seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+#   herbs.image.attach(io: File.open(Rails.root.join('app/assets/images/26919879_m.jpg')),filename: '26919879_m.jpg')
 #   herbs.classification = 'ハーブ類'
-#   herbs.name = ''
+#   herbs.name = 'ローズマリー'
 #   herbs.detail = ''
 #   herbs.usega = ''
 # end
 
-# SeasoningSpice.find_or_create_by!(name: '') do |herbs|
-#   herbs.image = ''
+# SeasoningSpice.find_or_create_by!(name: 'パクチー') do |herbs|
+#   seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+#   herbs.image.attach(io: File.open(Rails.root.join('app/assets/images/4938651_m.jpg')),filename: '4938651_m.jpg')
 #   herbs.classification = 'ハーブ類'
-#   herbs.name = ''
+#   herbs.name = 'パクチー'
 #   herbs.detail = ''
 #   herbs.usega = ''
 # end
 
-# SeasoningSpice.find_or_create_by!(name: '') do |herbs|
-#   herbs.image = ''
+# SeasoningSpice.find_or_create_by!(name: 'タイム') do |herbs|
+#   seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+#   herbs.image.attach(io: File.open(Rails.root.join('app/assets/images/27276468_m.jpg')),filename: '27276468_m.jpg')
 #   herbs.classification = 'ハーブ類'
-#   herbs.name = ''
-#   herbs.detail = ''
-#   herbs.usega = ''
-# end
-
-# SeasoningSpice.find_or_create_by!(name: '') do |herbs|
-#   herbs.image = ''
-#   herbs.classification = 'ハーブ類'
-#   herbs.name = ''
+#   herbs.name = 'タイム'
 #   herbs.detail = ''
 #   herbs.usega = ''
 # end
