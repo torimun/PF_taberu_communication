@@ -167,57 +167,57 @@ SeasoningSpice.find_or_create_by!(name: 'シナモン') do |spices|
 end
 
 
-# #ハーブ類初期データ
-# SeasoningSpice.find_or_create_by!(name: 'バジル') do |herbs|
-#   seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
-#   herbs.image.attach(io: File.open(Rails.root.join('app/assets/images/27846805_m.jpg')),filename: '27846805_m.jpg')
-#   herbs.classification = 'ハーブ類'
-#   herbs.name = 'バジル'
-#   herbs.detail = ''
-#   herbs.usega = ''
-# end
+#ハーブ類初期データ
+SeasoningSpice.find_or_create_by!(name: 'バジル') do |herbs|
+  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  herbs.image.attach(io: File.open(Rails.root.join('app/assets/images/27846805_m.jpg')),filename: '27846805_m.jpg')
+  herbs.classification = 'ハーブ類'
+  herbs.name = 'バジル'
+  herbs.detail = 'バジルとは、シソ科のハーブで、別名として「メボウキ」と呼ばれることもある'
+  herbs.usega = '主に、ピザとしての材料や、パスタに使用されることが多い'
+end
 
-# SeasoningSpice.find_or_create_by!(name: 'ミント') do |herbs|
-#   seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
-#   herbs.image.attach(io: File.open(Rails.root.join('app/assets/images/27223441_m.jpg')),filename: '27223441_m.jpg')
-#   herbs.classification = 'ハーブ類'
-#   herbs.name = 'ミント'
-#   herbs.detail = ''
-#   herbs.usega = ''
-# end
+SeasoningSpice.find_or_create_by!(name: 'ミント') do |herbs|
+  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  herbs.image.attach(io: File.open(Rails.root.join('app/assets/images/27223441_m.jpg')),filename: '27223441_m.jpg')
+  herbs.classification = 'ハーブ類'
+  herbs.name = 'ミント'
+  herbs.detail = 'ミントとはシソ科ハッカ属の総称。'
+  herbs.usega = '主に、スイーツや、ハーブティー等に使用されることがある'
+end
 
-# SeasoningSpice.find_or_create_by!(name: 'パセリ') do |herbs|
-#   seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
-#   herbs.image.attach(io: File.open(Rails.root.join('app/assets/images/26267849_m.jpg')),filename: '26267849_m.jpg')
-#   herbs.classification = 'ハーブ類'
-#   herbs.name = 'パセリ'
-#   herbs.detail = ''
-#   herbs.usega = ''
-# end
+SeasoningSpice.find_or_create_by!(name: 'パセリ') do |herbs|
+  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  herbs.image.attach(io: File.open(Rails.root.join('app/assets/images/26267849_m.jpg')),filename: '26267849_m.jpg')
+  herbs.classification = 'ハーブ類'
+  herbs.name = 'パセリ'
+  herbs.detail = 'セリ科の草であり、野菜として食用にされている'
+  herbs.usega = '主に、パスタやスープやソースに使用されることが多い'
+end
 
-# SeasoningSpice.find_or_create_by!(name: 'ローズマリー') do |herbs|
-#   seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
-#   herbs.image.attach(io: File.open(Rails.root.join('app/assets/images/26919879_m.jpg')),filename: '26919879_m.jpg')
-#   herbs.classification = 'ハーブ類'
-#   herbs.name = 'ローズマリー'
-#   herbs.detail = ''
-#   herbs.usega = ''
-# end
+SeasoningSpice.find_or_create_by!(name: 'ローズマリー') do |herbs|
+  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  herbs.image.attach(io: File.open(Rails.root.join('app/assets/images/26919879_m.jpg')),filename: '26919879_m.jpg')
+  herbs.classification = 'ハーブ類'
+  herbs.name = 'ローズマリー'
+  herbs.detail = '力強い香りが特徴で、乾燥しているとさらに香りが強く出るようになる'
+  herbs.usega = '肉や魚の臭み消しに使用し、料理としては、肉料理で利用されている'
+end
 
-# SeasoningSpice.find_or_create_by!(name: 'パクチー') do |herbs|
-#   seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
-#   herbs.image.attach(io: File.open(Rails.root.join('app/assets/images/4938651_m.jpg')),filename: '4938651_m.jpg')
-#   herbs.classification = 'ハーブ類'
-#   herbs.name = 'パクチー'
-#   herbs.detail = ''
-#   herbs.usega = ''
-# end
+SeasoningSpice.find_or_create_by!(name: 'パクチー') do |herbs|
+  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  herbs.image.attach(io: File.open(Rails.root.join('app/assets/images/4938651_m.jpg')),filename: '4938651_m.jpg')
+  herbs.classification = 'ハーブ類'
+  herbs.name = 'パクチー'
+  herbs.detail = 'コリアンダーやパクチー、シャンツァイ等色々名称があるが、特徴といえば独特で強烈な香りがあげられる'
+  herbs.usega = '海外での料理ではおなじみで、中華料理やインド料理等に使用されることが多い'
+end
 
-# SeasoningSpice.find_or_create_by!(name: 'タイム') do |herbs|
-#   seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
-#   herbs.image.attach(io: File.open(Rails.root.join('app/assets/images/27276468_m.jpg')),filename: '27276468_m.jpg')
-#   herbs.classification = 'ハーブ類'
-#   herbs.name = 'タイム'
-#   herbs.detail = ''
-#   herbs.usega = ''
-# end
+SeasoningSpice.find_or_create_by!(name: 'タイム') do |herbs|
+  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  herbs.image.attach(io: File.open(Rails.root.join('app/assets/images/27276468_m.jpg')),filename: '27276468_m.jpg')
+  herbs.classification = 'ハーブ類'
+  herbs.name = 'タイム'
+  herbs.detail = '「魚のハーブ」とも呼ばれていて、魚介類の臭みを消し、爽やかな香りが特徴'
+  herbs.usega = '主に、魚系の料理に用いられ、ムニエルや香草焼きなどがあげられる'
+end
