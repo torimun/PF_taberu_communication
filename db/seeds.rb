@@ -109,6 +109,7 @@ SeasoningSpice.find_or_create_by!(name: 'マヨネーズ') do |seasoning|
   seasoning.usega = '使用用途として、お好み焼きや、からあげ等、さまざまな物に付けて食べる事が出来る'
 end
 
+
 #香辛料初期データ
 # SeasoningSpice.find_or_create_by!(name: '') do |spices|
 #   spices.image = ''
@@ -157,6 +158,7 @@ end
 #   spices.detail = ''
 #   spices.usega = ''
 # end
+
 
 # #ハーブ類初期データ
 # SeasoningSpice.find_or_create_by!(name: '') do |herbs|
