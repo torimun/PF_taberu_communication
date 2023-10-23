@@ -54,9 +54,163 @@ Customer.find_or_create_by!(email: "customer7@customer7.com") do |customer_detai
   customer_detail.introduction = '鶏肉を使った料理が好きなので、鶏肉関連の料理が気になっています。'
 end
 
-#会員投稿登録
-Post.create!(
-  post.customer_id = Customer.find_or_create_by!(email: "customer1@customer1.com").id,
-  post.genre = '和食です',
-  post.comment = '今回は唐辛子でピり肉じゃがを作ってみました！'
-  )
+#調味料初期データ
+SeasoningSpice.find_or_create_by!(name: '醤油') do |seasoning|
+  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  seasoning.image.attach(io: File.open(Rails.root.join('app/assets/images/23054550_m.jpg')),filename: '23054550_m.jpg')
+  seasoning.classification = '調味料'
+  seasoning.name = '醤油'
+  seasoning.detail = '醤油は主に、大豆、小麦、塩の３つの原材料で出来ています。'
+  seasoning.usega = '使用用途として料理での味付けに使用されたり、お菓子等でも使用されています。'
+end
+
+SeasoningSpice.find_or_create_by!(name: 'みりん') do |seasoning|
+  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  seasoning.image.attach(io: File.open(Rails.root.join('app/assets/images/23393560_m.jpg')),filename: '23393560_m.jpg')
+  seasoning.classification = '調味料'
+  seasoning.name = 'みりん'
+  seasoning.detail = 'みりんは主に、もち米、米麹、焼酎や、アルコールといった３つの原材料で出来ています'
+  seasoning.usega = '使用用途としては味付けではなく、素材を柔らかくしたり、料理に味を染み込ませやすくする効果や、優しめの甘みを加える際に使用します。'
+end
+
+SeasoningSpice.find_or_create_by!(name: '味噌') do |seasoning|
+  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  seasoning.image.attach(io: File.open(Rails.root.join('app/assets/images/27836509_m.jpg')),filename: '27836509_m.jpg')
+  seasoning.classification = '調味料'
+  seasoning.name = '味噌'
+  seasoning.detail = '味噌は主に、大豆、麴、塩といった３つの原材料で出来ています。また味噌といっても、白味噌、赤味噌といった色の違いで用途が変わったりする。'
+  seasoning.usega = '使用用途としては、お味噌汁や、きゅうり等野菜にそのまま付けて食べる事もある'
+end
+
+SeasoningSpice.find_or_create_by!(name: '酢') do |seasoning|
+  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  seasoning.image.attach(io: File.open(Rails.root.join('app/assets/images/25810947_m.jpg')),filename: '25810947_m.jpg')
+  seasoning.classification = '調味料'
+  seasoning.name = '酢'
+  seasoning.detail = '酢は主に、原材料として穀類、果実等で作られており、優しめな酸味があるのが主な特徴'
+  seasoning.usega = '使用用途として、お寿司のご飯を酢飯にする際や、酢豚、ピクルス等がある'
+end
+
+SeasoningSpice.find_or_create_by!(name: '料理酒') do |seasoning|
+  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  seasoning.image.attach(io: File.open(Rails.root.join('app/assets/images/24813191_m.jpg')),filename: '24813191_m.jpg')
+  seasoning.classification = '調味料'
+  seasoning.name = '料理酒'
+  seasoning.detail = '主な原材料として、米、米麴、塩の３つで作られており、料理で使用することに特化してある調味料'
+  seasoning.usega = '使用用途としては、味付けというよりは、肉や、魚の臭み消しに使われたりする'
+end
+
+SeasoningSpice.find_or_create_by!(name: 'マヨネーズ') do |seasoning|
+  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  seasoning.image.attach(io: File.open(Rails.root.join('app/assets/images/27014234_m.jpg')),filename: '27014234_m.jpg')
+  seasoning.classification = '調味料'
+  seasoning.name = 'マヨネーズ'
+  seasoning.detail = '主な原材料として、卵、油、酢の３つから出来ている。酸味があるのが特徴'
+  seasoning.usega = '使用用途として、お好み焼きや、からあげ等、さまざまな物に付けて食べる事が出来る'
+end
+
+#香辛料初期データ
+# SeasoningSpice.find_or_create_by!(name: '') do |spices|
+#   spices.image = ''
+#   spices.classification = '香辛料'
+#   spices.name = ''
+#   spices.detail = ''
+#   spices.usega = ''
+# end
+
+# SeasoningSpice.find_or_create_by!(name: '') do |spices|
+#   spices.image = ''
+#   spices.classification = '香辛料'
+#   spices.name = ''
+#   spices.detail = ''
+#   spices.usega = ''
+# end
+
+# SeasoningSpice.find_or_create_by!(name: '') do |spices|
+#   spices.image = ''
+#   spices.classification = '香辛料'
+#   spices.name = ''
+#   spices.detail = ''
+#   spices.usega = ''
+# end
+
+# SeasoningSpice.find_or_create_by!(name: '') do |spices|
+#   spices.image = ''
+#   spices.classification = '香辛料'
+#   spices.name = ''
+#   spices.detail = ''
+#   spices.usega = ''
+# end
+
+# SeasoningSpice.find_or_create_by!(name: '') do |spices|
+#   spices.image = ''
+#   spices.classification = '香辛料'
+#   spices.name = ''
+#   spices.detail = ''
+#   spices.usega = ''
+# end
+
+# SeasoningSpice.find_or_create_by!(name: '') do |spices|
+#   spices.image = ''
+#   spices.classification = '香辛料'
+#   spices.name = ''
+#   spices.detail = ''
+#   spices.usega = ''
+# end
+
+# #ハーブ類初期データ
+# SeasoningSpice.find_or_create_by!(name: '') do |herbs|
+#   herbs.image = ''
+#   herbs.classification = 'ハーブ類'
+#   herbs.name = ''
+#   herbs.detail = ''
+#   herbs.usega = ''
+# end
+
+# SeasoningSpice.find_or_create_by!(name: '') do |herbs|
+#   herbs.image = ''
+#   herbs.classification = 'ハーブ類'
+#   herbs.name = ''
+#   herbs.detail = ''
+#   herbs.usega = ''
+# end
+
+# SeasoningSpice.find_or_create_by!(name: '') do |herbs|
+#   herbs.image = ''
+#   herbs.classification = 'ハーブ類'
+#   herbs.name = ''
+#   herbs.detail = ''
+#   herbs.usega = ''
+# end
+
+# SeasoningSpice.find_or_create_by!(name: '') do |herbs|
+#   herbs.image = ''
+#   herbs.classification = 'ハーブ類'
+#   herbs.name = ''
+#   herbs.detail = ''
+#   herbs.usega = ''
+# end
+
+# SeasoningSpice.find_or_create_by!(name: '') do |herbs|
+#   herbs.image = ''
+#   herbs.classification = 'ハーブ類'
+#   herbs.name = ''
+#   herbs.detail = ''
+#   herbs.usega = ''
+# end
+
+# SeasoningSpice.find_or_create_by!(name: '') do |herbs|
+#   herbs.image = ''
+#   herbs.classification = 'ハーブ類'
+#   herbs.name = ''
+#   herbs.detail = ''
+#   herbs.usega = ''
+# end
+
+# SeasoningSpice.find_or_create_by!(name: '') do |herbs|
+#   herbs.image = ''
+#   herbs.classification = 'ハーブ類'
+#   herbs.name = ''
+#   herbs.detail = ''
+#   herbs.usega = ''
+# end
