@@ -113,7 +113,7 @@ end
 
 #香辛料初期データ
 SeasoningSpice.find_or_create_by!(name: '唐辛子') do |spices|
-  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  spices.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
   spices.image.attach(io: File.open(Rails.root.join('app/assets/images/27590241_m.jpg)'),filename: '27590241_m.jpg')
   spices.classification = '香辛料'
   spices.name = '唐辛子'
@@ -122,7 +122,7 @@ SeasoningSpice.find_or_create_by!(name: '唐辛子') do |spices|
 end
 
 SeasoningSpice.find_or_create_by!(name: '胡椒') do |spices|
-  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  spices.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
   spices.image.attach(io: File.open(Rails.root.join('app/assets/images/27661097_m.jpg')),filename: '27661097_m.jpg')
   spices.classification = '香辛料'
   spices.name = '胡椒'
@@ -131,7 +131,7 @@ SeasoningSpice.find_or_create_by!(name: '胡椒') do |spices|
 end
 
 SeasoningSpice.find_or_create_by!(name: 'マスタード') do |spices|
-  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  spices.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
   spices.image.attach(io: File.open(Rails.root.join('app/assets/images/2430003_m.jpg')),filename: '2430003_m.jpg')
   spices.classification = '香辛料'
   spices.name = 'イエローマスタード'
@@ -140,7 +140,7 @@ SeasoningSpice.find_or_create_by!(name: 'マスタード') do |spices|
 end
 
 SeasoningSpice.find_or_create_by!(name: 'ナツメグ') do |spices|
-  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  spices.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
   spices.image.attach(io: File.open(Rails.root.join('app/assets/images/23577925_m.jpg')),filename: '23577925_m.jpg')
   spices.classification = '香辛料'
   spices.name = 'ナツメグ'
@@ -149,7 +149,7 @@ SeasoningSpice.find_or_create_by!(name: 'ナツメグ') do |spices|
 end
 
 SeasoningSpice.find_or_create_by!(name: '山椒') do |spices|
-  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  spices.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
   spices.image.attach(io: File.open(Rails.root.join('app/assets/images/26956929_m.jpg')),filename: '26956929_m.jpg')
   spices.classification = '香辛料'
   spices.name = '山椒'
@@ -158,7 +158,7 @@ SeasoningSpice.find_or_create_by!(name: '山椒') do |spices|
 end
 
 SeasoningSpice.find_or_create_by!(name: 'シナモン') do |spices|
-  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  spices.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
   spices.image.attach(io: File.open(Rails.root.join('app/assets/images/2906259_m.jpg')),filename: '2906259_m.jpg')
   spices.classification = '香辛料'
   spices.name = 'シナモン'
@@ -169,7 +169,7 @@ end
 
 #ハーブ類初期データ
 SeasoningSpice.find_or_create_by!(name: 'バジル') do |herbs|
-  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  herbs.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
   herbs.image.attach(io: File.open(Rails.root.join('app/assets/images/27846805_m.jpg')),filename: '27846805_m.jpg')
   herbs.classification = 'ハーブ類'
   herbs.name = 'バジル'
@@ -178,7 +178,7 @@ SeasoningSpice.find_or_create_by!(name: 'バジル') do |herbs|
 end
 
 SeasoningSpice.find_or_create_by!(name: 'ミント') do |herbs|
-  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  herbs.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
   herbs.image.attach(io: File.open(Rails.root.join('app/assets/images/27223441_m.jpg')),filename: '27223441_m.jpg')
   herbs.classification = 'ハーブ類'
   herbs.name = 'ミント'
@@ -187,7 +187,7 @@ SeasoningSpice.find_or_create_by!(name: 'ミント') do |herbs|
 end
 
 SeasoningSpice.find_or_create_by!(name: 'パセリ') do |herbs|
-  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  herbs.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
   herbs.image.attach(io: File.open(Rails.root.join('app/assets/images/26267849_m.jpg')),filename: '26267849_m.jpg')
   herbs.classification = 'ハーブ類'
   herbs.name = 'パセリ'
@@ -196,7 +196,7 @@ SeasoningSpice.find_or_create_by!(name: 'パセリ') do |herbs|
 end
 
 SeasoningSpice.find_or_create_by!(name: 'ローズマリー') do |herbs|
-  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  herbs.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
   herbs.image.attach(io: File.open(Rails.root.join('app/assets/images/26919879_m.jpg')),filename: '26919879_m.jpg')
   herbs.classification = 'ハーブ類'
   herbs.name = 'ローズマリー'
@@ -205,7 +205,7 @@ SeasoningSpice.find_or_create_by!(name: 'ローズマリー') do |herbs|
 end
 
 SeasoningSpice.find_or_create_by!(name: 'パクチー') do |herbs|
-  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  herbs.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
   herbs.image.attach(io: File.open(Rails.root.join('app/assets/images/4938651_m.jpg')),filename: '4938651_m.jpg')
   herbs.classification = 'ハーブ類'
   herbs.name = 'パクチー'
@@ -214,7 +214,7 @@ SeasoningSpice.find_or_create_by!(name: 'パクチー') do |herbs|
 end
 
 SeasoningSpice.find_or_create_by!(name: 'タイム') do |herbs|
-  seasoning.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
+  herbs.admin_id = Admin.find_or_create_by!(email: ENV['AWS_PF_ACCESS_ADMIN_EMAIL']).id
   herbs.image.attach(io: File.open(Rails.root.join('app/assets/images/27276468_m.jpg')),filename: '27276468_m.jpg')
   herbs.classification = 'ハーブ類'
   herbs.name = 'タイム'
