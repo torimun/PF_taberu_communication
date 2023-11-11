@@ -33,3 +33,11 @@
 - gem 'devise'
 - gem 'image_processing', '~>1.2' 追加 (画像サイズの変更の為)
 - gem 'bootstrap4-kaminari-views'
+- gem 'rails-i18n'
+- gem 'dotenv-rails'
+- group :production do
+-   gem 'mysql2'
+- end
+- gem "net-smtp"
+- gem "net-pop"
+- gem "net-imap"
