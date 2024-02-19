@@ -21,10 +21,10 @@
 - 自身がよく食べている料理の味の開拓をしたい時
 - 自身が好きな調味料を使った料理や味付けを知りたい時
 ## 設計書
-<!--テーマを設定・提出する時点では不要です-->
-​後程作成予定
+- [PF-AWS構成図](https://drive.google.com/file/d/1ll8rJER9HO9i_d05JOVrWy2fukw9geoV/view?usp=drive_link)
+- [PF-AWSインフラ設計](https://docs.google.com/spreadsheets/d/1pF3m4XOwltrZLY6eExBw9y47Y8fy-tHX6XXj0uhoLAA/edit?usp=drive_link)
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：Linux(AmazonLinux2)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
